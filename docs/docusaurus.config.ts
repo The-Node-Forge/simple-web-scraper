@@ -29,7 +29,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.ts'),
-          editUrl: 'https://github.com/The-Node-Forge/simple-web-scraper/tree/main/docs/',
+          editUrl:
+            'https://github.com/The-Node-Forge/simple-web-scraper/tree/main/docs/',
         },
         blog: {
           showReadingTime: true,
@@ -37,7 +38,8 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl: 'https://github.com/The-Node-Forge/simple-web-scraper/tree/main/docs/',
+          editUrl:
+            'https://github.com/The-Node-Forge/simple-web-scraper/tree/main/docs/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',

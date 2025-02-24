@@ -7,9 +7,9 @@
 
  </div>
 
-Welcome to The-Node-Forge **simple-web-scraper**! This repository serves as a **template**
-for The Node Forge members to quickly scaffold a new **TypeScript-based NPM package**
-with built-in **linting, testing, documentation, and CI/CD**.
+Welcome to The-Node-Forge **simple-web-scraper**! This repository serves as a
+**template** for The Node Forge members to quickly scaffold a new **TypeScript-based
+NPM package** with built-in **linting, testing, documentation, and CI/CD**.
 
 ---
 
