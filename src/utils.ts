@@ -20,7 +20,7 @@ export function exportToCSV(data: any | any[], filePath: string): void {
   const arrData = Array.isArray(data) ? data : [data];
 
   if (arrData.length === 0) {
-    console.log("No data to export");
+    console.log('No data to export');
     return;
   }
 
@@ -32,7 +32,7 @@ export function exportToCSV(data: any | any[], filePath: string): void {
 
   // Create CSV data rows
   for (const row of arrData) {
-    const values = headers.map(header => {
+    const values = headers.map((header) => {
       let value = row[header];
       if (typeof value === 'string') {
         value = value.replace(/"/g, '""');

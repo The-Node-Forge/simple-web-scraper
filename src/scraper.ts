@@ -14,7 +14,8 @@ export class WebScraper {
   private rules: Record<string, string>;
 
   constructor(options: ScraperOptions = {}) {
-    this.usePuppeteer = options.usePuppeteer !== undefined ? options.usePuppeteer : true;
+    this.usePuppeteer =
+      options.usePuppeteer !== undefined ? options.usePuppeteer : true;
     this.throttle = options.throttle || 1000;
     this.rules = options.rules || {};
   }
@@ -44,7 +45,7 @@ export class WebScraper {
       const selector = this.rules[key];
       data[key] = await page.evaluate((sel: string) => {
         const el = document.querySelector(sel);
-        return el ? el.innerText : null;
+        return el ? (el as HTMLElement).innerText : null;
       }, selector);
     }
 
@@ -66,6 +67,6 @@ export class WebScraper {
   }
 
   private delay(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }
