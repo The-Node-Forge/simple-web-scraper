@@ -1,4 +1,3 @@
-````markdown
 <div align="center">
 
 # Simple Web Scraper
@@ -42,7 +41,6 @@ Install via npm:
 ```sh
 npm install simple-web-scraper
 ```
-````
 
 or using Yarn:
 
