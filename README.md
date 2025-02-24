@@ -6,7 +6,7 @@
 ![Made with TypeScript](https://img.shields.io/badge/Made%20with-TypeScript-007acc)
 
 [![NPM Version](https://img.shields.io/npm/v/simple-web-scraper)](https://www.npmjs.com/package/simple-web-scraper)  
-[![Build Status](https://img.shields.io/github/actions/workflow/status/The-Node-Forge/simple-web-scraper/ci.yaml?branch=main)](https://github.com/The-Node-Forge/simple-web-scraper/actions)  
+[![Build Status](https://img.shields.io/github/actions/workflow/status/the-node-forge/simple-web-scraper/ci.yaml?branch=main)](https://github.com/The-Node-Forge/simple-web-scraper/actions)
 ![Platform](https://img.shields.io/badge/platform-node.js%20%7C%20browser-brightgreen)
 
 [Live Documentation](https://The-Node-Forge.github.io/simple-web-scraper/)
