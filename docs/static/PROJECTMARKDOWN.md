@@ -1,4 +1,3 @@
-````markdown
 <div align="center">
 
 # Simple Web Scraper
@@ -6,8 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Made with TypeScript](https://img.shields.io/badge/Made%20with-TypeScript-007acc)
 
-[![NPM Version](https://img.shields.io/npm/v/simple-web-scraper)](https://www.npmjs.com/package/simple-web-scraper)  
-[![Build Status](https://img.shields.io/github/actions/workflow/status/The-Node-Forge/simple-web-scraper/ci.yaml?branch=main)](https://github.com/The-Node-Forge/simple-web-scraper/actions)  
+[![NPM Version](https://img.shields.io/npm/v/simple-web-scraper)](https://www.npmjs.com/package/simple-web-scraper)
 ![Platform](https://img.shields.io/badge/platform-node.js%20%7C%20browser-brightgreen)
 
 [Live Documentation](https://The-Node-Forge.github.io/simple-web-scraper/)
@@ -42,7 +40,6 @@ Install via npm:
 ```sh
 npm install simple-web-scraper
 ```
-````
 
 or using Yarn:
 
@@ -136,7 +133,3 @@ If you find this package useful, please **give it a ⭐ on**
 
 - 📚 [NPM Package](https://www.npmjs.com/package/simple-web-scraper)
 - 🏗 [The Node Forge](https://github.com/The-Node-Forge)
-
-```
-
-```
