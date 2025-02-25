@@ -38,7 +38,7 @@ This package helps developers **fetch HTML content**, **parse web pages**, and
 Install via npm:
 
 ```sh
-npm install simple-web-scraper
+npm install simple-web-scraper 
 ```
 
 or using Yarn:
