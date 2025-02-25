@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1740434507327" clover="3.2.0">
-  <project timestamp="1740434507327" name="All files">
+<coverage generated="1740499868583" clover="3.2.0">
+  <project timestamp="1740499868584" name="All files">
     <metrics statements="54" coveredstatements="52" conditionals="18" coveredconditionals="12" methods="10" coveredmethods="9" elements="82" coveredelements="73" complexity="0" loc="54" ncloc="54" packages="1" files="2" classes="2"/>
     <file name="scraper.ts" path="/home/runner/work/simple-web-scraper/simple-web-scraper/src/scraper.ts">
       <metrics statements="31" coveredstatements="29" conditionals="13" coveredconditionals="7" methods="7" coveredmethods="6"/>
