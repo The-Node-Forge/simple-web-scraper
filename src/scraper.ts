@@ -8,6 +8,7 @@ export interface ScraperOptions {
   rules?: Record<string, string>;
 }
 
+// Object Properties class - the scraper needs configurations (usePuppeteer, throttle, rules) to be set once in the constructor, and used in different methods
 export class WebScraper {
   private usePuppeteer: boolean;
   private throttle: number;
