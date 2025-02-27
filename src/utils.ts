@@ -17,7 +17,7 @@ export function exportToJSON(data: any, filePath: string): void {
  * @param filePath - The output file path.
  */
 export function exportToCSV(data: any | any[], filePath: string): void {
-  // ensure the data is in an array
+  // ensure the data is an array
   const arrData = Array.isArray(data) ? data : [data];
 
   if (arrData.length === 0) {
@@ -32,14 +32,14 @@ export function exportToCSV(data: any | any[], filePath: string): void {
   // create CSV header row
   csvRows.push(headers.join(','));
 
-  // create CSV data rows
+  // create CSV data row
   for (const row of arrData) {
     const values = headers.map((header) => {
-      let value = row[header]; // current column value
+      let value = row[header];
 
       // ensure values are formatted correctly for CSV
       if (typeof value === 'string') {
-        // escape double quotes by doubling them
+        // escape double quotes by doubling them up
         value = value.replace(/"/g, '""');
 
         // if value contains a comma, wrap it in double quotes
@@ -50,11 +50,9 @@ export function exportToCSV(data: any | any[], filePath: string): void {
       return value;
     });
 
-    // add the processed row to the CSV output
     csvRows.push(values.join(','));
   }
 
-  // write to file
   fs.writeFileSync(filePath, csvRows.join('\n'));
   console.log(`Data exported to CSV file at ${filePath}`);
 }

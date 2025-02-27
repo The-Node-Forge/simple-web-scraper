@@ -4,7 +4,7 @@ import * as cheerio from 'cheerio';
 
 export interface ScraperOptions {
   usePuppeteer?: boolean;
-  throttle?: number; // delay between requests to avoid overwhelming the server
+  throttle?: number;
   rules?: Record<string, string>; // object defining CSS selectors for extracting specific data
 }
 
@@ -17,9 +17,9 @@ export class WebScraper {
     this.usePuppeteer =
       options.usePuppeteer !== undefined ? options.usePuppeteer : true;
 
-    this.throttle = options.throttle || 1000; // set a default throttle delay of 1 second
+    this.throttle = options.throttle || 1000;
 
-    this.rules = options.rules || {}; // use provided extraction rules or default to an empty object
+    this.rules = options.rules || {};
   }
 
   /**
@@ -31,9 +31,9 @@ export class WebScraper {
     await this.delay(this.throttle); // introduce a delay before each request
 
     if (this.usePuppeteer) {
-      return this.scrapeWithPuppeteer(url); // uses Puppeteer for rendering JavaScript-heavy sites
+      return this.scrapeWithPuppeteer(url); // javaScript-heavy sites
     } else {
-      return this.scrapeWithCheerio(url); // usesCheerio for simple HTML parsing
+      return this.scrapeWithCheerio(url); // simple HTML parsing
     }
   }
 
@@ -44,18 +44,18 @@ export class WebScraper {
    * @returns A promise resolving to an object with extracted data.
    */
   private async scrapeWithPuppeteer(url: string): Promise<Record<string, any>> {
-    const browser = await puppeteer.launch(); // launch a headless browser instance
-    const page = await browser.newPage(); // open a new page/tab
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'networkidle2' }); // navigtae to the URL and wait for network requests to settle
 
-    const data: Record<string, any> = {}; // initialize an object to store extracted data
+    const data: Record<string, any> = {};
 
-    // iterate over the rules (CSS selectors) and extract data
     for (const key in this.rules) {
       const selector = this.rules[key];
+
       data[key] = await page.evaluate((sel: string) => {
         const el = document.querySelector(sel); // find the element using the selector
-        return el ? (el as HTMLElement).innerText : null; // extract and return text content
+        return el ? (el as HTMLElement).innerText : null; // return text content
       }, selector);
     }
 
@@ -70,15 +70,15 @@ export class WebScraper {
    * @returns A promise resolving to an object with extracted data.
    */
   private async scrapeWithCheerio(url: string): Promise<Record<string, any>> {
-    const response = await axios.get(url); // fetch the webpage HTML using Axios
-    const html = response.data; // get the raw HTML content
+    const response = await axios.get(url);
+    const html = response.data;
     const $ = cheerio.load(html); // load the HTML into Cheerio for parsing
 
-    const data: Record<string, any> = {}; // initialize an object to store extracted data
+    const data: Record<string, any> = {};
 
-    // iterate over the rules (CSS selectors) and extract data
     for (const key in this.rules) {
-      const selector = this.rules[key]; // get the CSS selector for the specific data
+      const selector = this.rules[key]; // get the CSS selector
+
       data[key] = $(selector).first().text().trim() || null; // extract text and remove extra spaces
     }
     return data;
