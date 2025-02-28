@@ -37,22 +37,30 @@ export function exportToCSV(data: any | any[], filePath: string): void {
     const values = headers.map((header) => {
       let value = row[header];
 
-      // ensure values are formatted correctly for CSV
-      if (typeof value === 'string') {
-        // escape double quotes by doubling them up
-        value = value.replace(/"/g, '""');
-
-        // if value contains a comma, wrap it in double quotes
-        if (value.indexOf(',') >= 0) {
-          value = `"${value}"`;
-        }
+      // ensure null or undefined values are replaced with an empty string
+      if (value === null || value === undefined) {
+        return '';
       }
+
+      // convert all non-string values to strings
+      if (typeof value !== 'string') {
+        value = String(value);
+      }
+
+      // escape double quotes by doubling them up
+      value = value.replace(/"/g, '""');
+
+      // if value contains a comma, newline, or quotes, wrap it in double quotes
+      if (value.includes(',') || value.includes('\n') || value.includes('"')) {
+        value = `"${value}"`;
+      }
+
       return value;
     });
 
     csvRows.push(values.join(','));
   }
 
-  fs.writeFileSync(filePath, csvRows.join('\n'));
+  fs.writeFileSync(filePath, csvRows.join('\n'), 'utf-8');
   console.log(`Data exported to CSV file at ${filePath}`);
 }
