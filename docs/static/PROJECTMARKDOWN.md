@@ -109,19 +109,19 @@ new WebScraper(options?: ScraperOptions)
 
 ## **Methods**
 
-### **scrape(url: string): Promise<Record<string, any>>**
+#### **`scrape(url: string): Promise<Record<string, any>>`**
 
 - Scrapes the given URL based on the configured options.
 
-### **exportToJSON(data: any, filePath: string): void**
+#### **`exportToJSON(data: any, filePath: string): void`**
 
 - Exports the given data to a JSON file.
 
-### **exportToCSV(data: any | any[], filePath: string): void**
+#### **`exportToCSV(data: any | any[], filePath: string): void`**
 
 - Exports the given data to a CSV file.
 
-### **readCSV(filePath: string): Promise<any[]>**
+#### **`readCSV(filePath: string): Promise<any[]>`**
 
 - Reads a CSV file and converts it to JSON.
 
@@ -232,7 +232,7 @@ const scraper = new WebScraper({
   rules: { title: 'h1', content: 'p' },
 });
 
-app.get('/test-scraper', async (req, res) => {
+app.get('/scrape-example', async (req, res) => {
   try {
     const url = 'https://github.com/The-Node-Forge';
     const data = await scraper.scrape(url);

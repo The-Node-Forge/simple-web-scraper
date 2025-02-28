@@ -109,19 +109,19 @@ new WebScraper(options?: ScraperOptions)
 
 ## **Methods**
 
-### **scrape(url: string): Promise<Record<string, any>>**
+#### **`scrape(url: string): Promise<Record<string, any>>`**
 
 - Scrapes the given URL based on the configured options.
 
-### **exportToJSON(data: any, filePath: string): void**
+#### **`exportToJSON(data: any, filePath: string): void`**
 
 - Exports the given data to a JSON file.
 
-### **exportToCSV(data: any | any[], filePath: string): void**
+#### **`exportToCSV(data: any | any[], filePath: string): void`**
 
 - Exports the given data to a CSV file.
 
-### **readCSV(filePath: string): Promise<any[]>**
+#### **`readCSV(filePath: string): Promise<any[]>`**
 
 - Reads a CSV file and converts it to JSON.
 
