@@ -37,7 +37,7 @@ export function exportToCSV(data: any | any[], filePath: string): void {
     const values = headers.map((header) => {
       let value = row[header];
 
-      // ensure null or undefined values are replaced with an empty string
+      // replace null or undefined values with an empty string
       if (value === null || value === undefined) {
         return '';
       }
