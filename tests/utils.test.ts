@@ -1,27 +1,8 @@
 import * as fs from 'fs';
-import csvParser from 'csv-parser';
 
-import { exportToJSON, exportToCSV, readCSV } from '../src/utils';
+import { exportToJSON, exportToCSV } from '../src/utils';
 
 jest.mock('fs');
-
-jest.mock('csv-parser', () =>
-  jest.fn(() => ({
-    pipe: jest.fn().mockReturnThis(),
-    on: jest.fn(function (
-      this: any,
-      event: string,
-      callback: (...args: any[]) => void,
-    ) {
-      if (event === 'data') {
-        callback({ name: 'Alice', age: '30' });
-        callback({ name: 'Bob', age: '25' });
-      }
-      if (event === 'end') callback();
-      return this;
-    }),
-  })),
-);
 
 describe('Utils functions', () => {
   let consoleLogSpy: jest.SpyInstance;
@@ -97,92 +78,6 @@ describe('Utils functions', () => {
       expect(consoleLogSpy).toHaveBeenCalledWith(
         `Data exported to CSV file at: ${filePath}`,
       );
-    });
-  });
-
-  describe('readCSV', () => {
-    it('should correctly parse a valid CSV file into JSON', async () => {
-      const filePath = 'test.csv';
-
-      jest.spyOn(fs, 'createReadStream').mockImplementation(
-        () =>
-          ({
-            pipe: jest.fn().mockReturnThis(),
-            on: jest.fn().mockImplementation(function (
-              this: any,
-              event: string,
-              callback: (...args: any[]) => void,
-            ) {
-              if (event === 'data') {
-                callback({ name: 'Alice', age: '30' });
-                callback({ name: 'Bob', age: '25' });
-              }
-              if (event === 'end') callback();
-              return this;
-            }),
-          }) as unknown as fs.ReadStream,
-      );
-
-      const result = await readCSV(filePath);
-      expect(result).toEqual([
-        { name: 'Alice', age: '30' },
-        { name: 'Bob', age: '25' },
-      ]);
-
-      expect(csvParser).toHaveBeenCalled();
-    });
-
-    it('should handle empty values and ensure they are converted to empty strings', async () => {
-      const filePath = 'test.csv';
-
-      jest.spyOn(fs, 'createReadStream').mockImplementation(
-        () =>
-          ({
-            pipe: jest.fn().mockReturnThis(),
-            on: jest.fn().mockImplementation(function (
-              this: any,
-              event: string,
-              callback: (...args: any[]) => void,
-            ) {
-              if (event === 'data') {
-                callback({ name: 'Alice', age: '30' });
-                callback({ name: 'Bob', age: '' });
-              }
-              if (event === 'end') callback();
-              return this;
-            }),
-          }) as unknown as fs.ReadStream,
-      );
-
-      const result = await readCSV(filePath);
-      expect(result).toEqual([
-        { name: 'Alice', age: '30' },
-        { name: 'Bob', age: '' },
-      ]);
-
-      expect(csvParser).toHaveBeenCalled();
-    });
-
-    it('should handle errors gracefully', async () => {
-      const filePath = 'test.csv';
-      jest.spyOn(fs, 'createReadStream').mockImplementation(
-        () =>
-          ({
-            pipe: jest.fn().mockReturnThis(),
-            on: jest.fn().mockImplementation(function (
-              this: any,
-              event: string,
-              callback: (...args: any[]) => void,
-            ) {
-              if (event === 'error') callback(new Error('CSV Parsing Error'));
-              return this;
-            }),
-          }) as unknown as fs.ReadStream,
-      );
-
-      await expect(readCSV(filePath)).rejects.toThrow('CSV Parsing Error');
-
-      expect(csvParser).toHaveBeenCalled();
     });
   });
 });

@@ -1,4 +1,4 @@
 import { WebScraper } from './scraper';
-import { exportToJSON, exportToCSV, readCSV } from './utils';
+import { exportToJSON, exportToCSV } from './utils';
 
-export { WebScraper, exportToJSON, exportToCSV, readCSV };
+export { WebScraper, exportToJSON, exportToCSV };
