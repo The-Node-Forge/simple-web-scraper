@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import csvParser from 'csv-parser';
 
 /**
  * Exports the provided data as a JSON file.
@@ -63,4 +64,32 @@ export function exportToCSV(data: any | any[], filePath: string): void {
 
   fs.writeFileSync(filePath, csvRows.join('\n'), 'utf-8');
   console.log(`Data exported to CSV file at: ${filePath}`);
+}
+
+/**
+ * Reads a CSV file and parses it into JSON format.
+ * @param filePath - The CSV file path.
+ * @returns {Promise<any[]>} - Parsed CSV data.
+ */
+export async function readCSV(filePath: string): Promise<any[]> {
+  return new Promise((resolve, reject) => {
+    const results: any[] = [];
+
+    fs.createReadStream(filePath)
+      .pipe(csvParser()) // No need for `skipLinesWithError`
+      .on('data', (row) => {
+        // Ensure empty fields remain empty strings
+        Object.keys(row).forEach((key) => {
+          if (row[key] === undefined || row[key] === null) {
+            row[key] = ''; // Explicitly setting missing values to empty string
+          }
+        });
+        results.push(row);
+      })
+      .on('end', () => resolve(results))
+      .on('error', (error) => {
+        console.error('CSV Parsing Error:', error);
+        reject(error);
+      });
+  });
 }

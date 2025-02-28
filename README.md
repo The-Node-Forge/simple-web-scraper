@@ -30,6 +30,7 @@ This package helps developers **fetch HTML content**, **parse web pages**, and
 - ✅ **Lightweight & Fast** – Uses Cheerio for static HTML scraping.
 - ✅ **TypeScript Support** – Fully typed for robust development.
 - ✅ **Data Export Support** – Export scraped data in JSON or CSV formats.
+- ✅ **CSV Import Support** – Read CSV files and convert them to JSON.
 
 ---
 
@@ -69,40 +70,40 @@ new WebScraper(options?: ScraperOptions)
 
 ## 📊 Rule Set Table
 
-| Rule                 | CSS Selector                                                                                                     | Target Data                                          |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| fullHTML             | `html`                                                                                                           | The entire HTML of the page                          |
-| title                | `head > title`                                                                                                   | The `<title>` of the page                            |
-| description          | `meta[name="description"]::attr(content)`                                                                        | Meta description for SEO                             |
-| keywords             | `meta[name="keywords"]::attr(content)`                                                                           | Meta keywords                                        |
-| favicon              | `link[rel="icon"]::attr(href)`                                                                                   | Website icon                                         |
-| mainHeading          | `h1`                                                                                                             | The first `<h1>` heading                             |
-| allHeadings          | `h1, h2, h3, h4, h5, h6`                                                                                         | All headings (`h1`-`h6`)                             |
-| firstParagraph       | `p`                                                                                                              | The first paragraph (`<p>`)                          |
-| allParagraphs        | `p`                                                                                                              | All paragraphs on the page                           |
-| links                | `a::attr(href)`                                                                                                  | All anchor `<a>` links                               |
-| images               | `img::attr(src)`                                                                                                 | All image `<img>` sources                            |
-| imageAlts            | `img::attr(alt)`                                                                                                 | All image alt texts                                  |
-| videos               | `video::attr(src), iframe[src*="youtube.com"], iframe[src*="vimeo.com"]::attr(src)`                              | Video sources (`<video>`, YouTube, Vimeo)            |
-| tables               | `table`                                                                                                          | All `<table>` elements                               |
-| tableData            | `td`                                                                                                             | Individual `<td>` elements                           |
-| lists                | `ul, ol`                                                                                                         | All ordered `<ol>` and unordered `<ul>` lists        |
-| listItems            | `li`                                                                                                             | All list `<li>` items                                |
-| scripts              | `script::attr(src)`                                                                                              | JavaScript files included (`<script src="...">`)     |
-| stylesheets          | `link[rel="stylesheet"]::attr(href)`                                                                             | Stylesheets (`<link rel="stylesheet">`)              |
-| structuredData       | `script[type="application/ld+json"]`                                                                             | JSON-LD structured data for SEO                      |
-| socialLinks          | `a[href*="facebook.com"], a[href*="twitter.com"], a[href*="linkedin.com"], a[href*="instagram.com"]::attr(href)` | Facebook, Twitter, LinkedIn, Instagram links         |
-| author               | `meta[name="author"]::attr(content)`                                                                             | Page author (`meta[name="author"]`)                  |
-| publishDate          | `meta[property="article:published_time"]::attr(content), time::attr(datetime)`                                   | Date article was published                           |
-| modifiedDate         | `meta[property="article:modified_time"]::attr(content)`                                                          | Last modified date                                   |
-| canonicalURL         | `link[rel="canonical"]::attr(href)`                                                                              | Canonical URL (avoids duplicate content)             |
-| openGraphTitle       | `meta[property="og:title"]::attr(content)`                                                                       | OpenGraph metadata for social sharing                |
-| openGraphDescription | `meta[property="og:description"]::attr(content)`                                                                 | OpenGraph description                                |
-| openGraphImage       | `meta[property="og:image"]::attr(content)`                                                                       | OpenGraph image URL                                  |
-| twitterCard          | `meta[name="twitter:card"]::attr(content)`                                                                       | Twitter card type (`summary`, `summary_large_image`) |
-| twitterTitle         | `meta[name="twitter:title"]::attr(content)`                                                                      | Twitter title metadata                               |
-| twitterDescription   | `meta[name="twitter:description"]::attr(content)`                                                                | Twitter description metadata                         |
-| twitterImage         | `meta[name="twitter:image"]::attr(content)`                                                                      | Twitter image metadata                               |
+| Rule                 | CSS Selector                                                                                         | Target Data                                          |
+| -------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| fullHTML             | `html`                                                                                               | The entire HTML of the page                          |
+| title                | `head > title`                                                                                       | The `<title>` of the page                            |
+| description          | `meta[name="description"]`                                                                           | Meta description for SEO                             |
+| keywords             | `meta[name="keywords"]`                                                                              | Meta keywords                                        |
+| favicon              | `link[rel="icon"]`                                                                                   | Website icon                                         |
+| mainHeading          | `h1`                                                                                                 | The first `<h1>` heading                             |
+| allHeadings          | `h1, h2, h3, h4, h5, h6`                                                                             | All headings (`h1`-`h6`)                             |
+| firstParagraph       | `p`                                                                                                  | The first paragraph (`<p>`)                          |
+| allParagraphs        | `p`                                                                                                  | All paragraphs on the page                           |
+| links                | `a`                                                                                                  | All anchor `<a>` links                               |
+| images               | `img`                                                                                                | All image `<img>` sources                            |
+| imageAlts            | `img`                                                                                                | All image alt texts                                  |
+| videos               | `video, iframe[src*="youtube.com"], iframe[src*="vimeo.com"]`                                        | Video sources (`<video>`, YouTube, Vimeo)            |
+| tables               | `table`                                                                                              | All `<table>` elements                               |
+| tableData            | `td`                                                                                                 | Individual `<td>` elements                           |
+| lists                | `ul, ol`                                                                                             | All ordered `<ol>` and unordered `<ul>` lists        |
+| listItems            | `li`                                                                                                 | All list `<li>` items                                |
+| scripts              | `script`                                                                                             | JavaScript files included (`<script src="...">`)     |
+| stylesheets          | `link[rel="stylesheet"]`                                                                             | Stylesheets (`<link rel="stylesheet">`)              |
+| structuredData       | `script[type="application/ld+json"]`                                                                 | JSON-LD structured data for SEO                      |
+| socialLinks          | `a[href*="facebook.com"], a[href*="twitter.com"], a[href*="linkedin.com"], a[href*="instagram.com"]` | Facebook, Twitter, LinkedIn, Instagram links         |
+| author               | `meta[name="author"]`                                                                                | Page author (`meta[name="author"]`)                  |
+| publishDate          | `meta[property="article:published_time"], time`                                                      | Date article was published                           |
+| modifiedDate         | `meta[property="article:modified_time"]`                                                             | Last modified date                                   |
+| canonicalURL         | `link[rel="canonical"]`                                                                              | Canonical URL (avoids duplicate content)             |
+| openGraphTitle       | `meta[property="og:title"]`                                                                          | OpenGraph metadata for social sharing                |
+| openGraphDescription | `meta[property="og:description"]`                                                                    | OpenGraph description                                |
+| openGraphImage       | `meta[property="og:image"]`                                                                          | OpenGraph image URL                                  |
+| twitterCard          | `meta[name="twitter:card"]`                                                                          | Twitter card type (`summary`, `summary_large_image`) |
+| twitterTitle         | `meta[name="twitter:title"]`                                                                         | Twitter title metadata                               |
+| twitterDescription   | `meta[name="twitter:description"]`                                                                   | Twitter description metadata                         |
+| twitterImage         | `meta[name="twitter:image"]`                                                                         | Twitter image metadata                               |
 
 ---
 
@@ -120,11 +121,15 @@ new WebScraper(options?: ScraperOptions)
 
 - Exports the given data to a CSV file.
 
+### **readCSV(filePath: string): Promise<any[]>**
+
+- Reads a CSV file and converts it to JSON.
+
 ---
 
 ## 🛠️ Basic Usage
 
-### **1⃣ Scraping Web Pages**
+### **1. Scraping Web Pages**
 
 You can scrape web pages using either Puppeteer (for JavaScript-heavy pages) or
 Cheerio (for static HTML pages).
@@ -136,7 +141,7 @@ const scraper = new WebScraper({
   usePuppeteer: false, // Set to true for dynamic pages
   rules: {
     title: 'h1',
-    description: 'meta[name=\"description\"]::attr(content)',
+    description: 'meta[name=\"description\"]',
   },
 });
 
@@ -148,7 +153,7 @@ const scraper = new WebScraper({
 
 ---
 
-### **2⃣ Using Puppeteer for JavaScript-heavy Pages**
+### **2. Using Puppeteer for JavaScript-heavy Pages**
 
 To scrape pages that require JavaScript execution:
 
@@ -169,9 +174,9 @@ const scraper = new WebScraper({
 
 ---
 
-### **3⃣ Exporting Data**
+### **3. Exporting/Reading Data**
 
-Scraped data can be exported to JSON or CSV files using utility functions.
+- Scraped data can be exported to JSON or CSV files using utility functions.
 
 #### **Export to JSON**
 
@@ -194,15 +199,32 @@ const data = [
 exportToCSV(data, 'output.csv');
 ```
 
+#### **Reading CSV Files**
+
+You can use the `readCSV` function to parse a CSV file into JSON format.
+
+```typescript
+import { readCSV } from 'simple-web-scraper';
+
+(async () => {
+  try {
+    const data = await readCSV('output.csv');
+    console.log(data);
+  } catch (error) {
+    console.error('Error reading CSV:', error);
+  }
+})();
+```
+
 ---
 
-## 🖥 Backend Example (Node.js)
+## 🖥 Backend Example - Module (import)
 
 This example demonstrates how to use `simple-web-scraper` in a Node.js backend:
 
 ```typescript
 import express from 'express';
-import { WebScraper } from 'simple-web-scraper';
+import { WebScraper, exportToJSON, exportToCSV, readCSV } from 'simple-web-scraper';
 
 const app = express();
 const scraper = new WebScraper({
@@ -210,23 +232,94 @@ const scraper = new WebScraper({
   rules: { title: 'h1', content: 'p' },
 });
 
-app.get('/scrape', async (req, res) => {
-  const url = req.query.url as string;
-  if (!url) {
-    return res.status(400).json({ error: 'URL is required' });
-  }
+app.get('/scrape-example', async (req, res) => {
   try {
+    const url = 'https://github.com/The-Node-Forge';
     const data = await scraper.scrape(url);
-    res.json(data);
+
+    exportToJSON(data, 'output.json'); // export JSON
+    exportToCSV(data, 'output.csv'); // export CSV
+
+    const readData = await readCSV(data); // Read CSV
+    console.log('readData', readData);
+
+    res.status(200).json({ success: true, data });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to scrape the webpage' });
+    res.status(500).json({ success: false, error: error.message });
   }
 });
-
-app.listen(3000, () => console.log('Server running on port 3000'));
 ```
 
 ---
+
+## 🖥 Backend Example - CommonJS (require)
+
+This example demonstrates how to use `simple-web-scraper` in a Node.js backend:
+
+```typescript
+const {
+  WebScraper,
+  exportToJSON,
+  exportToCSV,
+  readCSV,
+} = require('@the-node-forge/simple-web-scraper/dist');
+
+const scraper = new WebScraper({
+  usePuppeteer: true,
+  rules: {
+    fullHTML: 'html', // Entire page HTML
+    title: 'head > title', // Page title
+    description: 'meta[name="description"]', // Meta description
+    keywords: 'meta[name="keywords"]', // Meta keywords
+    favicon: 'link[rel="icon"]', // Favicon URL
+    mainHeading: 'h1', // First H1 heading
+    allHeadings: 'h1, h2, h3, h4, h5, h6', // All headings on the page
+    firstParagraph: 'p', // First paragraph
+    allParagraphs: 'p', // All paragraphs on the page
+    links: 'a', // All links on the page
+    images: 'img', // All image URLs
+    imageAlts: 'img', // Alternative text for images
+    videos: 'video, iframe[src*="youtube.com"], iframe[src*="vimeo.com"]', // Video sources
+    tables: 'table', // Capture table elements
+    tableData: 'td', // Capture table cells
+    lists: 'ul, ol', // Capture all lists
+    listItems: 'li', // Capture all list items
+    scripts: 'script', // JavaScript file sources
+    stylesheets: 'link[rel="stylesheet"]', // External CSS files
+    structuredData: 'script[type="application/ld+json"]', // JSON-LD structured data
+    socialLinks:
+      'a[href*="facebook.com"], a[href*="twitter.com"], a[href*="linkedin.com"], a[href*="instagram.com"]', // Social media links
+    author: 'meta[name="author"]', // Author meta tag
+    publishDate: 'meta[property="article:published_time"], time', // Publish date
+    modifiedDate: 'meta[property="article:modified_time"]', // Last modified date
+    canonicalURL: 'link[rel="canonical"]', // Canonical URL
+    openGraphTitle: 'meta[property="og:title"]', // OpenGraph title
+    openGraphDescription: 'meta[property="og:description"]', // OpenGraph description
+    openGraphImage: 'meta[property="og:image"]', // OpenGraph image
+    twitterCard: 'meta[name="twitter:card"]', // Twitter card type
+    twitterTitle: 'meta[name="twitter:title"]', // Twitter title
+    twitterDescription: 'meta[name="twitter:description"]', // Twitter description
+    twitterImage: 'meta[name="twitter:image"]', // Twitter image
+  },
+});
+
+app.get('/test-scraper', async (req, res) => {
+  try {
+    const url = 'https://github.com/The-Node-Forge';
+    const data = await scraper.scrape(url);
+
+    exportToJSON(data, 'output.json'); // export JSON
+    exportToCSV(data, 'output.csv'); // export CSV
+
+    const readData = await readCSV(data); // Read CSV
+    console.log('readData', readData);
+
+    res.status(200).json({ success: true, data });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+```
 
 ## 🛠️ Full Usage Example
 
@@ -238,39 +331,37 @@ const scraper = new WebScraper({
   rules: {
     fullHTML: 'html', // Entire page HTML
     title: 'head > title', // Page title
-    description: 'meta[name="description"]::attr(content)', // Meta description
-    keywords: 'meta[name="keywords"]::attr(content)', // Meta keywords
-    favicon: 'link[rel="icon"]::attr(href)', // Favicon URL
+    description: 'meta[name="description"]', // Meta description
+    keywords: 'meta[name="keywords"]', // Meta keywords
+    favicon: 'link[rel="icon"]', // Favicon URL
     mainHeading: 'h1', // First H1 heading
     allHeadings: 'h1, h2, h3, h4, h5, h6', // All headings on the page
     firstParagraph: 'p', // First paragraph
     allParagraphs: 'p', // All paragraphs on the page
-    links: 'a::attr(href)', // All links on the page
-    images: 'img::attr(src)', // All image URLs
-    imageAlts: 'img::attr(alt)', // Alternative text for images
-    videos:
-      'video::attr(src), iframe[src*="youtube.com"], iframe[src*="vimeo.com"]::attr(src)', // Video sources
+    links: 'a', // All links on the page
+    images: 'img', // All image URLs
+    imageAlts: 'img', // Alternative text for images
+    videos: 'video, iframe[src*="youtube.com"], iframe[src*="vimeo.com"]', // Video sources
     tables: 'table', // Capture table elements
     tableData: 'td', // Capture table cells
     lists: 'ul, ol', // Capture all lists
     listItems: 'li', // Capture all list items
-    scripts: 'script::attr(src)', // JavaScript file sources
-    stylesheets: 'link[rel="stylesheet"]::attr(href)', // External CSS files
+    scripts: 'script', // JavaScript file sources
+    stylesheets: 'link[rel="stylesheet"]', // External CSS files
     structuredData: 'script[type="application/ld+json"]', // JSON-LD structured data
     socialLinks:
-      'a[href*="facebook.com"], a[href*="twitter.com"], a[href*="linkedin.com"], a[href*="instagram.com"]::attr(href)', // Social media links
-    author: 'meta[name="author"]::attr(content)', // Author meta tag
-    publishDate:
-      'meta[property="article:published_time"]::attr(content), time::attr(datetime)', // Publish date
-    modifiedDate: 'meta[property="article:modified_time"]::attr(content)', // Last modified date
-    canonicalURL: 'link[rel="canonical"]::attr(href)', // Canonical URL
-    openGraphTitle: 'meta[property="og:title"]::attr(content)', // OpenGraph title
-    openGraphDescription: 'meta[property="og:description"]::attr(content)', // OpenGraph description
-    openGraphImage: 'meta[property="og:image"]::attr(content)', // OpenGraph image
-    twitterCard: 'meta[name="twitter:card"]::attr(content)', // Twitter card type
-    twitterTitle: 'meta[name="twitter:title"]::attr(content)', // Twitter title
-    twitterDescription: 'meta[name="twitter:description"]::attr(content)', // Twitter description
-    twitterImage: 'meta[name="twitter:image"]::attr(content)', // Twitter image
+      'a[href*="facebook.com"], a[href*="twitter.com"], a[href*="linkedin.com"], a[href*="instagram.com"]', // Social media links
+    author: 'meta[name="author"]', // Author meta tag
+    publishDate: 'meta[property="article:published_time"], time', // Publish date
+    modifiedDate: 'meta[property="article:modified_time"]', // Last modified date
+    canonicalURL: 'link[rel="canonical"]', // Canonical URL
+    openGraphTitle: 'meta[property="og:title"]', // OpenGraph title
+    openGraphDescription: 'meta[property="og:description"]', // OpenGraph description
+    openGraphImage: 'meta[property="og:image"]', // OpenGraph image
+    twitterCard: 'meta[name="twitter:card"]', // Twitter card type
+    twitterTitle: 'meta[name="twitter:title"]', // Twitter title
+    twitterDescription: 'meta[name="twitter:description"]', // Twitter description
+    twitterImage: 'meta[name="twitter:image"]', // Twitter image
   },
 });
 
