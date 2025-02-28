@@ -7,7 +7,7 @@ import * as fs from 'fs';
  */
 export function exportToJSON(data: any, filePath: string): void {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-  console.log(`Data exported to JSON file at ${filePath}`);
+  console.log(`Data exported to JSON file at: ${filePath}`);
 }
 
 /**
@@ -37,9 +37,9 @@ export function exportToCSV(data: any | any[], filePath: string): void {
     const values = headers.map((header) => {
       let value = row[header];
 
-      // replace null or undefined values with an empty string
-      if (value === null || value === undefined) {
-        return '';
+      // replace null, undefined, or empty string values with explicit empty quotes
+      if (value === null || value === undefined || value === '') {
+        return '""'; // empty fields are explicitly marked
       }
 
       // convert all non-string values to strings
@@ -62,5 +62,5 @@ export function exportToCSV(data: any | any[], filePath: string): void {
   }
 
   fs.writeFileSync(filePath, csvRows.join('\n'), 'utf-8');
-  console.log(`Data exported to CSV file at ${filePath}`);
+  console.log(`Data exported to CSV file at: ${filePath}`);
 }
