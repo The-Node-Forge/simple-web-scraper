@@ -1,5 +1,5 @@
-import { WebScraper } from './scraper';
-import { exportToJSON, exportToCSV } from './utils';
+import { WebScraper } from './scraper.js';
+import { exportToJSON, exportToCSV } from './utils.js';
 
 export { WebScraper, exportToJSON, exportToCSV };
 
