@@ -16,8 +16,13 @@ export function exportToJSON(data: any, filePath: string): void {
  * @param data - The data to export (object or array of objects).
  * @param filePath - The output file path.
  */
-export function exportToCSV(data: any | any[], filePath: string): void {
-  // ensure the data is an array
+export function exportToCSV(
+  data: any | any[],
+  filePath: string,
+  options: { preserveNulls?: boolean } = {},
+): void {
+  const { preserveNulls = false } = options;
+
   const arrData = Array.isArray(data) ? data : [data];
 
   if (arrData.length === 0) {
@@ -25,20 +30,17 @@ export function exportToCSV(data: any | any[], filePath: string): void {
     return;
   }
 
-  // extract the keys (column headers) from the first object in the array
   const headers = Object.keys(arrData[0]);
   const csvRows: string[] = [];
 
-  // create CSV header row
   csvRows.push(headers.map((header) => `"${header}"`).join(','));
 
-  // create CSV data row
   for (const row of arrData) {
     const values = headers.map((header) => {
       let value = row[header];
 
-      if (value === null || value === undefined || value === '') {
-        return `""`;
+      if (value === null || value === undefined) {
+        return preserveNulls ? `"null"` : `""`;
       }
 
       value = String(value).replace(/"/g, '""');

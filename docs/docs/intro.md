@@ -11,9 +11,14 @@ guides:
 
 ## Description
 
-**A fully-configured TypeScript NPM package template with built-in CI/CD, automated
-tests, ESLint, Prettier, and Docusaurus documentation. Get started quickly with best
-practices for package development**
+**Simple Web Scraper is a lightweight and efficient web scraping library for
+JavaScript and TypeScript applications. It enables developers to fetch, parse, and
+extract data from web pages with ease.**
+
+**Built for flexibility, it supports Cheerio for fast static HTML parsing and
+Puppeteer for JavaScript-rendered pages. Whether you're automating data collection,
+extracting SEO metadata, or gathering structured information, this package simplifies
+web scraping with minimal setup.**
 
 ### 📌 Getting Started
 

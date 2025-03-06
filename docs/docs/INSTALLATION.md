@@ -34,18 +34,13 @@ After installation, you can import it into your project:
 ### **For ES Modules (Recommended)**
 
 ```typescript
-import { WebScraper, exportToJSON, exportToCSV, readCSV } from 'simple-web-scraper';
+import { WebScraper, exportToJSON, exportToCSV } from 'simple-web-scraper';
 ```
 
 ### **For CommonJS (Node.js Default)**
 
 ```javascript
-const {
-  WebScraper,
-  exportToJSON,
-  exportToCSV,
-  readCSV,
-} = require('simple-web-scraper');
+const { WebScraper, exportToJSON, exportToCSV } = require('simple-web-scraper');
 ```
 
 ## 🚀 Next Steps
