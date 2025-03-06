@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Made with TypeScript](https://img.shields.io/badge/Made%20with-TypeScript-007acc)
 
-[![NPM Version](https://img.shields.io/npm/v/simple-web-scraper)](https://www.npmjs.com/package/simple-web-scraper)
+[![NPM Version](https://img.shields.io/npm/v/@the-node-forge/simple-web-scraper)](https://www.npmjs.com/package/@the-node-forge/simple-web-scraper)
 ![Platform](https://img.shields.io/badge/platform-node.js%20%7C%20browser-brightgreen)
 
 [Live Documentation](https://The-Node-Forge.github.io/simple-web-scraper/)
