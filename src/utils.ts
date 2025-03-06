@@ -30,50 +30,19 @@ export function exportToCSV(data: any | any[], filePath: string): void {
   const csvRows: string[] = [];
 
   // create CSV header row
-  // csvRows.push(headers.join(','));
-  csvRows.push(headers.map((header) => `"${header}"`).join(',')); // Force quotes in headers
+  csvRows.push(headers.map((header) => `"${header}"`).join(','));
 
   // create CSV data row
-  // for (const row of arrData) {
-  //   const values = headers.map((header) => {
-  //     let value = row[header];
-
-  //     // replace null, undefined, or empty string values with explicit empty quotes
-  //     if (value === null || value === undefined || value === '') {
-  //       return '""'; // empty fields are explicitly marked
-  //     }
-
-  //     // convert all non-string values to strings
-  //     if (typeof value !== 'string') {
-  //       value = String(value);
-  //     }
-
-  //     // escape double quotes by doubling them up
-  //     value = value.replace(/"/g, '""');
-
-  //     // if value contains a comma, newline, or quotes, wrap it in double quotes
-  //     if (value.includes(',') || value.includes('\n') || value.includes('"')) {
-  //       value = `"${value}"`;
-  //     }
-
-  //     return value;
-  //   });
-
-  //   csvRows.push(values.join(','));
-  // }
-
   for (const row of arrData) {
     const values = headers.map((header) => {
       let value = row[header];
 
       if (value === null || value === undefined || value === '') {
-        return `""`; // Ensure empty fields have quotes
+        return `""`;
       }
 
-      // Convert value to string and escape quotes
       value = String(value).replace(/"/g, '""');
 
-      // Always wrap values in quotes
       return `"${value}"`;
     });
 
