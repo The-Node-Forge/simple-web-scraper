@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+
 import { exportToJSON, exportToCSV } from '../src/utils';
 
 jest.mock('fs');
