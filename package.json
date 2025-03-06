@@ -2,7 +2,12 @@
   "name": "@the-node-forge/simple-web-scraper",
   "version": "1.0.0",
   "description": "Extracts structured data from web pages for automation, research, or aggregation.",
-  "main": "src/index.ts",
+  "exports": {
+    "import": "./dist/mjs/index.mjs",
+    "require": "./dist/cjs/index.cjs"
+  },
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/mjs/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
@@ -13,7 +18,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "npm run build",
-    "build": "tsc",
+    "build": "npm run clean && npm run build:cjs && npm run build:mjs",
+    "build:cjs": "tsc --project tsconfig.cjs.json && find dist/cjs -name '*.js' -exec sh -c 'cp \"$1\" \"${1%.js}.cjs\"' _ {} \\;",
+    "build:mjs": "tsc --project tsconfig.mjs.json && find dist/mjs -name '*.js' -exec sh -c 'cp \"$1\" \"${1%.js}.mjs\"' _ {} \\;",
+    "clean": "rm -rf dist",
     "docs:generate": "typedoc --plugin typedoc-plugin-markdown --out docs/api src/index.ts",
     "docs:build": "npm run docs:generate && cd docs && npm run build",
     "docs:start": "npm run docs:generate && cd docs && npm start",

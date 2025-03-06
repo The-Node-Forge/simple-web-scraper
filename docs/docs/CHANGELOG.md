@@ -4,7 +4,7 @@ description: A detailed changelog.
 sidebar_position: 5
 ---
 
-### v1.0.0 - 2025-02-28
+### v1.0.0 - 2025-03-06
 
 - Initial release
 

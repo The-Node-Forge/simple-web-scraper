@@ -13,9 +13,8 @@
 </div>
 
 A **lightweight and efficient web scraping package** for JavaScript/TypeScript
-applications.  
-This package helps developers **fetch HTML content**, **parse web pages**, and
-**extract data** effortlessly.
+applications. This package helps developers **fetch HTML content**, **parse web
+pages**, and **extract data** effortlessly.
 
 ---
 
@@ -50,6 +49,32 @@ yarn add simple-web-scraper
 
 ---
 
+## 🚀 Why Use Cheerio and Puppeteer?
+
+This package leverages **Cheerio** and **Puppeteer** for powerful web scraping
+capabilities:
+
+### 🔹 **Cheerio (Fast and Lightweight)**
+
+- Ideal for **static HTML parsing** (like `jQuery` for the backend).
+- Extremely **fast** and **lightweight** – perfect for pages **without JavaScript**
+  rendering.
+- Provides **easy CSS selector querying** for extracting structured data.
+
+### 🔹 **Puppeteer (Headless Browser Automation)**
+
+- **Handles JavaScript-rendered pages** – essential for scraping dynamic content.
+- Can **interact with pages**, click buttons, and fill out forms.
+- Allows **screenshot capturing**, **PDF generation**, and full-page automation.
+
+### ✅ **Best of Both Worlds**
+
+- Use **Cheerio** for **speed** when scraping static pages.
+- Switch to **Puppeteer** for **JavaScript-heavy** sites requiring full rendering.
+- Provides **flexibility** to choose the best approach for your project.
+
+---
+
 ## ✅ **API Reference**
 
 ### **WebScraper Class**
@@ -60,50 +85,11 @@ new WebScraper(options?: ScraperOptions)
 
 ## 📊 Props
 
-| Parameter      | Type                     | Description                                              |
-| -------------- | ------------------------ | -------------------------------------------------------- |
-| `usePuppeteer` | `boolean` (optional)     | Whether to use Puppeteer (default: `true`)               |
-| `throttle`     | `number` (optional)      | Delay in milliseconds between requests (default: `1000`) |
-| `rules`        | `Record<string, string>` | CSS selectors defining data extraction rules             |
-
----
-
-## 📊 Rule Set Table
-
-| Rule                 | CSS Selector                                                                                         | Target Data                                          |
-| -------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| fullHTML             | `html`                                                                                               | The entire HTML of the page                          |
-| title                | `head > title`                                                                                       | The `<title>` of the page                            |
-| description          | `meta[name="description"]`                                                                           | Meta description for SEO                             |
-| keywords             | `meta[name="keywords"]`                                                                              | Meta keywords                                        |
-| favicon              | `link[rel="icon"]`                                                                                   | Website icon                                         |
-| mainHeading          | `h1`                                                                                                 | The first `<h1>` heading                             |
-| allHeadings          | `h1, h2, h3, h4, h5, h6`                                                                             | All headings (`h1`-`h6`)                             |
-| firstParagraph       | `p`                                                                                                  | The first paragraph (`<p>`)                          |
-| allParagraphs        | `p`                                                                                                  | All paragraphs on the page                           |
-| links                | `a`                                                                                                  | All anchor `<a>` links                               |
-| images               | `img`                                                                                                | All image `<img>` sources                            |
-| imageAlts            | `img`                                                                                                | All image alt texts                                  |
-| videos               | `video, iframe[src*="youtube.com"], iframe[src*="vimeo.com"]`                                        | Video sources (`<video>`, YouTube, Vimeo)            |
-| tables               | `table`                                                                                              | All `<table>` elements                               |
-| tableData            | `td`                                                                                                 | Individual `<td>` elements                           |
-| lists                | `ul, ol`                                                                                             | All ordered `<ol>` and unordered `<ul>` lists        |
-| listItems            | `li`                                                                                                 | All list `<li>` items                                |
-| scripts              | `script`                                                                                             | JavaScript files included (`<script src="...">`)     |
-| stylesheets          | `link[rel="stylesheet"]`                                                                             | Stylesheets (`<link rel="stylesheet">`)              |
-| structuredData       | `script[type="application/ld+json"]`                                                                 | JSON-LD structured data for SEO                      |
-| socialLinks          | `a[href*="facebook.com"], a[href*="twitter.com"], a[href*="linkedin.com"], a[href*="instagram.com"]` | Facebook, Twitter, LinkedIn, Instagram links         |
-| author               | `meta[name="author"]`                                                                                | Page author (`meta[name="author"]`)                  |
-| publishDate          | `meta[property="article:published_time"], time`                                                      | Date article was published                           |
-| modifiedDate         | `meta[property="article:modified_time"]`                                                             | Last modified date                                   |
-| canonicalURL         | `link[rel="canonical"]`                                                                              | Canonical URL (avoids duplicate content)             |
-| openGraphTitle       | `meta[property="og:title"]`                                                                          | OpenGraph metadata for social sharing                |
-| openGraphDescription | `meta[property="og:description"]`                                                                    | OpenGraph description                                |
-| openGraphImage       | `meta[property="og:image"]`                                                                          | OpenGraph image URL                                  |
-| twitterCard          | `meta[name="twitter:card"]`                                                                          | Twitter card type (`summary`, `summary_large_image`) |
-| twitterTitle         | `meta[name="twitter:title"]`                                                                         | Twitter title metadata                               |
-| twitterDescription   | `meta[name="twitter:description"]`                                                                   | Twitter description metadata                         |
-| twitterImage         | `meta[name="twitter:image"]`                                                                         | Twitter image metadata                               |
+| Parameter      | Type                     | Description                                                     |
+| -------------- | ------------------------ | --------------------------------------------------------------- |
+| `usePuppeteer` | `boolean` (optional)     | Whether to use Puppeteer (default: `true`)                      |
+| `throttle`     | `number` (optional)      | Delay in milliseconds between requests (default: `1000`)        |
+| `rules`        | `Record<string, string>` | [CSS selectors defining data extraction rules](#rule-set-table) |
 
 ---
 
@@ -120,10 +106,6 @@ new WebScraper(options?: ScraperOptions)
 #### **`exportToCSV(data: any | any[], filePath: string): void`**
 
 - Exports the given data to a CSV file.
-
-#### **`readCSV(filePath: string): Promise<any[]>`**
-
-- Reads a CSV file and converts it to JSON.
 
 ---
 
@@ -174,7 +156,7 @@ const scraper = new WebScraper({
 
 ---
 
-### **3. Exporting/Reading Data**
+### **3. Exporting Data**
 
 - Scraped data can be exported to JSON or CSV files using utility functions.
 
@@ -197,23 +179,9 @@ const data = [
   { name: 'Example 2', value: 99 },
 ];
 exportToCSV(data, 'output.csv');
-```
 
-#### **Reading CSV Files**
-
-You can use the `readCSV` function to parse a CSV file into JSON format.
-
-```typescript
-import { readCSV } from 'simple-web-scraper';
-
-(async () => {
-  try {
-    const data = await readCSV('output.csv');
-    console.log(data);
-  } catch (error) {
-    console.error('Error reading CSV:', error);
-  }
-})();
+// Preserve null and undefined values as null
+exportToCSV(data, 'output.csv', { preserveNulls: true });
 ```
 
 ---
@@ -224,7 +192,7 @@ This example demonstrates how to use `simple-web-scraper` in a Node.js backend:
 
 ```typescript
 import express from 'express';
-import { WebScraper, exportToJSON, exportToCSV, readCSV } from 'simple-web-scraper';
+import { WebScraper, exportToJSON, exportToCSV } from 'simple-web-scraper';
 
 const app = express();
 const scraper = new WebScraper({
@@ -238,10 +206,7 @@ app.get('/scrape-example', async (req, res) => {
     const data = await scraper.scrape(url);
 
     exportToJSON(data, 'output.json'); // export JSON
-    exportToCSV(data, 'output.csv'); // export CSV
-
-    const readData = await readCSV(data); // Read CSV
-    console.log('readData', readData);
+    exportToCSV(data, 'output.csv', { preserveNulls: true }); // export CSV
 
     res.status(200).json({ success: true, data });
   } catch (error) {
@@ -261,7 +226,6 @@ const {
   WebScraper,
   exportToJSON,
   exportToCSV,
-  readCSV,
 } = require('@the-node-forge/simple-web-scraper/dist');
 
 const scraper = new WebScraper({
@@ -310,9 +274,6 @@ app.get('/test-scraper', async (req, res) => {
 
     exportToJSON(data, 'output.json'); // export JSON
     exportToCSV(data, 'output.csv'); // export CSV
-
-    const readData = await readCSV(data); // Read CSV
-    console.log('readData', readData);
 
     res.status(200).json({ success: true, data });
   } catch (error) {
@@ -373,10 +334,49 @@ const scraper = new WebScraper({
 
 ---
 
+## 📊 Rule Set Table
+
+| Rule                 | CSS Selector                                                                                         | Target Data                                          |
+| -------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| fullHTML             | `html`                                                                                               | The entire HTML of the page                          |
+| title                | `head > title`                                                                                       | The `<title>` of the page                            |
+| description          | `meta[name="description"]`                                                                           | Meta description for SEO                             |
+| keywords             | `meta[name="keywords"]`                                                                              | Meta keywords                                        |
+| favicon              | `link[rel="icon"]`                                                                                   | Website icon                                         |
+| mainHeading          | `h1`                                                                                                 | The first `<h1>` heading                             |
+| allHeadings          | `h1, h2, h3, h4, h5, h6`                                                                             | All headings (`h1`-`h6`)                             |
+| firstParagraph       | `p`                                                                                                  | The first paragraph (`<p>`)                          |
+| allParagraphs        | `p`                                                                                                  | All paragraphs on the page                           |
+| links                | `a`                                                                                                  | All anchor `<a>` links                               |
+| images               | `img`                                                                                                | All image `<img>` sources                            |
+| imageAlts            | `img`                                                                                                | All image alt texts                                  |
+| videos               | `video, iframe[src*="youtube.com"], iframe[src*="vimeo.com"]`                                        | Video sources (`<video>`, YouTube, Vimeo)            |
+| tables               | `table`                                                                                              | All `<table>` elements                               |
+| tableData            | `td`                                                                                                 | Individual `<td>` elements                           |
+| lists                | `ul, ol`                                                                                             | All ordered `<ol>` and unordered `<ul>` lists        |
+| listItems            | `li`                                                                                                 | All list `<li>` items                                |
+| scripts              | `script`                                                                                             | JavaScript files included (`<script src="...">`)     |
+| stylesheets          | `link[rel="stylesheet"]`                                                                             | Stylesheets (`<link rel="stylesheet">`)              |
+| structuredData       | `script[type="application/ld+json"]`                                                                 | JSON-LD structured data for SEO                      |
+| socialLinks          | `a[href*="facebook.com"], a[href*="twitter.com"], a[href*="linkedin.com"], a[href*="instagram.com"]` | Facebook, Twitter, LinkedIn, Instagram links         |
+| author               | `meta[name="author"]`                                                                                | Page author (`meta[name="author"]`)                  |
+| publishDate          | `meta[property="article:published_time"], time`                                                      | Date article was published                           |
+| modifiedDate         | `meta[property="article:modified_time"]`                                                             | Last modified date                                   |
+| canonicalURL         | `link[rel="canonical"]`                                                                              | Canonical URL (avoids duplicate content)             |
+| openGraphTitle       | `meta[property="og:title"]`                                                                          | OpenGraph metadata for social sharing                |
+| openGraphDescription | `meta[property="og:description"]`                                                                    | OpenGraph description                                |
+| openGraphImage       | `meta[property="og:image"]`                                                                          | OpenGraph image URL                                  |
+| twitterCard          | `meta[name="twitter:card"]`                                                                          | Twitter card type (`summary`, `summary_large_image`) |
+| twitterTitle         | `meta[name="twitter:title"]`                                                                         | Twitter title metadata                               |
+| twitterDescription   | `meta[name="twitter:description"]`                                                                   | Twitter description metadata                         |
+| twitterImage         | `meta[name="twitter:image"]`                                                                         | Twitter image metadata                               |
+
+---
+
 ## 💡 **Contributing**
 
-Contributions are welcome! Please submit  
-[issues](https://github.com/The-Node-Forge/simple-web-scraper/issues) or  
+Contributions are welcome! Please submit
+[issues](https://github.com/The-Node-Forge/simple-web-scraper/issues) or
 [pull requests](https://github.com/The-Node-Forge/simple-web-scraper/pulls).
 
 ---

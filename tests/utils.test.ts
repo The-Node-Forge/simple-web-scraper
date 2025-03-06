@@ -37,7 +37,7 @@ describe('Utils functions', () => {
       const filePath = 'output.csv';
       exportToCSV(data, filePath);
 
-      const expectedCSV = `name,age\nAlice,30`;
+      const expectedCSV = `"name","age"\n"Alice","30"`; // Fix: Expect quoted headers
       expect(fs.writeFileSync).toHaveBeenCalledWith(filePath, expectedCSV, 'utf-8');
       expect(consoleLogSpy).toHaveBeenCalledWith(
         `Data exported to CSV file at: ${filePath}`,
@@ -52,7 +52,7 @@ describe('Utils functions', () => {
       const filePath = 'output.csv';
       exportToCSV(data, filePath);
 
-      const expectedCSV = `name,age\nAlice,30\nBob,25`;
+      const expectedCSV = `"name","age"\n"Alice","30"\n"Bob","25"`; // Fix: Expect quoted headers
       expect(fs.writeFileSync).toHaveBeenCalledWith(filePath, expectedCSV, 'utf-8');
       expect(consoleLogSpy).toHaveBeenCalledWith(
         `Data exported to CSV file at: ${filePath}`,
@@ -73,7 +73,31 @@ describe('Utils functions', () => {
       const filePath = 'output.csv';
       exportToCSV(data, filePath);
 
-      const expectedCSV = `name,age\n"Alice, ""The Great""",30`;
+      const expectedCSV = `"name","age"\n"Alice, ""The Great""","30"`; // Fix: Expect quoted headers
+      expect(fs.writeFileSync).toHaveBeenCalledWith(filePath, expectedCSV, 'utf-8');
+      expect(consoleLogSpy).toHaveBeenCalledWith(
+        `Data exported to CSV file at: ${filePath}`,
+      );
+    });
+
+    it('should replace null and undefined with empty quotes when preserveNulls is false (default)', () => {
+      const data = { name: 'Alice', age: null, city: undefined };
+      const filePath = 'output.csv';
+      exportToCSV(data, filePath, { preserveNulls: false });
+
+      const expectedCSV = `"name","age","city"\n"Alice","",""`; // Fix: Expect quoted headers
+      expect(fs.writeFileSync).toHaveBeenCalledWith(filePath, expectedCSV, 'utf-8');
+      expect(consoleLogSpy).toHaveBeenCalledWith(
+        `Data exported to CSV file at: ${filePath}`,
+      );
+    });
+
+    it('should keep null and undefined values as "null" when preserveNulls is true', () => {
+      const data = { name: 'Alice', age: null, city: undefined };
+      const filePath = 'output.csv';
+      exportToCSV(data, filePath, { preserveNulls: true });
+
+      const expectedCSV = `"name","age","city"\n"Alice","null","null"`; // Fix: Expect quoted headers
       expect(fs.writeFileSync).toHaveBeenCalledWith(filePath, expectedCSV, 'utf-8');
       expect(consoleLogSpy).toHaveBeenCalledWith(
         `Data exported to CSV file at: ${filePath}`,

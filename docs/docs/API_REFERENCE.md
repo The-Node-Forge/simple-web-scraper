@@ -109,35 +109,9 @@ const data = [
   { name: 'Example 2', value: 99 },
 ];
 exportToCSV(data, 'output.csv');
-```
 
----
-
-### `readCSV(filePath: string): Promise<any[]>`
-
-Reads a CSV file and converts it to JSON.
-
-**Parameters:**
-
-- `filePath` - `string` - The path to the CSV file.
-
-**Returns:**
-
-- `Promise<any[]>` - The parsed CSV data as an array of objects.
-
-**Example:**
-
-```typescript
-import { readCSV } from 'simple-web-scraper';
-
-(async () => {
-  try {
-    const data = await readCSV('output.csv');
-    console.log(data);
-  } catch (error) {
-    console.error('Error reading CSV:', error);
-  }
-})();
+// preserve nullish values
+exportToCSV(data, 'output.csv', { preserveNulls: true });
 ```
 
 ---
@@ -148,7 +122,7 @@ This example demonstrates how to use `simple-web-scraper` in a Node.js backend:
 
 ```typescript
 import express from 'express';
-import { WebScraper, exportToJSON, exportToCSV, readCSV } from 'simple-web-scraper';
+import { WebScraper, exportToJSON, exportToCSV } from 'simple-web-scraper';
 
 const app = express();
 const scraper = new WebScraper({
@@ -198,9 +172,10 @@ app.get('/scrape-example', async (req, res) => {
     exportToJSON(data, 'output.json'); // export JSON
     exportToCSV(data, 'output.csv'); // export CSV
 
-    const readData = await readCSV(data); // Read CSV
+    // preserve nullish values while exporting to csv
+    exportToCSV(data, 'outputPreserveNulls.csv', { preserveNulls: true });
 
-    res.status(200).json({ success: true, readData });
+    res.status(200).json({ success: true, data });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
