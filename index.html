@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-pages plugin-id-default" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">simple-web-scraper | The Node Forge</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://the-node-forge.github.io/simple-web-scraper/img/theNodeForge.png"><meta data-rh="true" name="twitter:image" content="https://the-node-forge.github.io/simple-web-scraper/img/theNodeForge.png"><meta data-rh="true" property="og:url" content="https://the-node-forge.github.io/simple-web-scraper/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="simple-web-scraper | The Node Forge"><meta data-rh="true" name="description" content="A fully-configured TypeScript NPM package template with built-in CI/CD, automated tests, ESLint, Prettier, and Docusaurus documentation. Get started quickly with best practices for package development"><meta data-rh="true" property="og:description" content="A fully-configured TypeScript NPM package template with built-in CI/CD, automated tests, ESLint, Prettier, and Docusaurus documentation. Get started quickly with best practices for package development"><link data-rh="true" rel="icon" href="/simple-web-scraper/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://the-node-forge.github.io/simple-web-scraper/"><link data-rh="true" rel="alternate" href="https://the-node-forge.github.io/simple-web-scraper/" hreflang="en"><link data-rh="true" rel="alternate" href="https://the-node-forge.github.io/simple-web-scraper/" hreflang="x-default"><script data-rh="true">function insertBanner(){var n=document.createElement("div");n.id="__docusaurus-base-url-issue-banner-container";n.innerHTML='\n<div id="__docusaurus-base-url-issue-banner" style="border: thick solid red; background-color: rgb(255, 230, 179); margin: 20px; padding: 20px; font-size: 20px;">\n   <p style="font-weight: bold; font-size: 30px;">Your Docusaurus site did not load properly.</p>\n   <p>A very common reason is a wrong site <a href="https://docusaurus.io/docs/docusaurus.config.js/#baseUrl" style="font-weight: bold;">baseUrl configuration</a>.</p>\n   <p>Current configured baseUrl = <span style="font-weight: bold; color: red;">/simple-web-scraper/</span> </p>\n   <p>We suggest trying baseUrl = <span id="__docusaurus-base-url-issue-banner-suggestion-container" style="font-weight: bold; color: green;"></span></p>\n</div>\n',document.body.prepend(n);var e=document.getElementById("__docusaurus-base-url-issue-banner-suggestion-container"),s=window.location.pathname,o="/"===s.substr(-1)?s:s+"/";e.innerHTML=o}document.addEventListener("DOMContentLoaded",(function(){void 0===window.docusaurus&&insertBanner()}))</script><link rel="alternate" type="application/rss+xml" href="/simple-web-scraper/blog/rss.xml" title="The Node Forge RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/simple-web-scraper/blog/atom.xml" title="The Node Forge Atom Feed"><link rel="stylesheet" href="/simple-web-scraper/assets/css/styles.41fd28e6.css">
+<script src="/simple-web-scraper/assets/js/runtime~main.d21801f6.js" defer="defer"></script>
+<script src="/simple-web-scraper/assets/js/main.be14b75c.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/simple-web-scraper/img/theNodeForge.png"><link rel="preload" as="image" href="https://img.shields.io/badge/License-MIT-yellow.svg"><link rel="preload" as="image" href="https://img.shields.io/badge/Made%20with-TypeScript-007acc"><link rel="preload" as="image" href="https://img.shields.io/npm/v/@the-node-forge/simple-web-scraper"><link rel="preload" as="image" href="https://img.shields.io/github/actions/workflow/status/the-node-forge/simple-web-scraper/ci.yaml?branch=main"><link rel="preload" as="image" href="https://img.shields.io/badge/platform-node.js%20%7C%20browser-brightgreen"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/simple-web-scraper/"><div class="navbar__logo"><img src="/simple-web-scraper/img/theNodeForge.png" alt="The Node Forge Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/simple-web-scraper/img/theNodeForge.png" alt="The Node Forge Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">The Node Forge</b></a><a class="navbar__item navbar__link" href="/simple-web-scraper/docs/intro">Docs</a><a class="navbar__item navbar__link" href="/simple-web-scraper/docs/api">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/The-Node-Forge/simple-web-scraper" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><main><main class="container margin-vert--lg"><div style="text-align:center;margin-bottom:2rem"><img src="/simple-web-scraper/img/theNodeForge.png" alt="The Node Forge Logo" width="150" height="150" style="border-radius:50%"><h1 style="margin-top:1rem;font-size:2rem">The Node Forge presents:</h1></div><div align="center"><header><h1 id="simple-web-scraper">Simple Web Scraper</h1></header><p><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+<img src="https://img.shields.io/badge/Made%20with-TypeScript-007acc" alt="Made with TypeScript"></p><p><a href="https://www.npmjs.com/package/@the-node-forge/simple-web-scraper"><img src="https://img.shields.io/npm/v/@the-node-forge/simple-web-scraper" alt="NPM Version"></a>
+<a href="https://github.com/The-Node-Forge/simple-web-scraper/actions"><img src="https://img.shields.io/github/actions/workflow/status/the-node-forge/simple-web-scraper/ci.yaml?branch=main" alt="Build Status"></a>
+<img src="https://img.shields.io/badge/platform-node.js%20%7C%20browser-brightgreen" alt="Platform"></p><p><a href="https://The-Node-Forge.github.io/simple-web-scraper/">Live Documentation</a></p></div>
+<p>A <strong>lightweight and efficient web scraping package</strong> for JavaScript/TypeScript
+applications. This package helps developers <strong>fetch HTML content</strong>, <strong>parse web
+pages</strong>, and <strong>extract data</strong> effortlessly.</p>
+<hr>
+<h2 id="-features">✨ Features</h2>
+<ul>
+<li>✅ <strong>Fetch Web Content</strong> – Retrieve HTML from any URL with ease.</li>
+<li>✅ <strong>Parse and Extract Data</strong> – Utilize integrated parsing tools to extract
+information.</li>
+<li>✅ <strong>Configurable Options</strong> – Customize scraping behaviors using CSS selectors.</li>
+<li>✅ <strong>Headless Browser Support</strong> – Optionally use Puppeteer for JavaScript-rendered
+pages.</li>
+<li>✅ <strong>Lightweight &amp; Fast</strong> – Uses Cheerio for static HTML scraping.</li>
+<li>✅ <strong>TypeScript Support</strong> – Fully typed for robust development.</li>
+<li>✅ <strong>Data Export Support</strong> – Export scraped data in JSON or CSV formats.</li>
+<li>✅ <strong>CSV Import Support</strong> – Read CSV files and convert them to JSON.</li>
+</ul>
+<hr>
+<h2 id="-installation">📚 Installation</h2>
+<p>Install via npm:</p>
+<pre><code class="language-sh">npm install simple-web-scraper
+</code></pre>
+<p>or using Yarn:</p>
+<pre><code class="language-sh">yarn add simple-web-scraper
+</code></pre>
+<hr>
+<h2 id="-why-use-cheerio-and-puppeteer">🚀 Why Use Cheerio and Puppeteer?</h2>
+<p>This package leverages <strong>Cheerio</strong> and <strong>Puppeteer</strong> for powerful web scraping
+capabilities:</p>
+<h3 id="-cheerio-fast-and-lightweight">🔹 <strong>Cheerio (Fast and Lightweight)</strong></h3>
+<ul>
+<li>Ideal for <strong>static HTML parsing</strong> (like <code>jQuery</code> for the backend).</li>
+<li>Extremely <strong>fast</strong> and <strong>lightweight</strong> – perfect for pages <strong>without JavaScript</strong>
+rendering.</li>
+<li>Provides <strong>easy CSS selector querying</strong> for extracting structured data.</li>
+</ul>
+<h3 id="-puppeteer-headless-browser-automation">🔹 <strong>Puppeteer (Headless Browser Automation)</strong></h3>
+<ul>
+<li><strong>Handles JavaScript-rendered pages</strong> – essential for scraping dynamic content.</li>
+<li>Can <strong>interact with pages</strong>, click buttons, and fill out forms.</li>
+<li>Allows <strong>screenshot capturing</strong>, <strong>PDF generation</strong>, and full-page automation.</li>
+</ul>
+<h3 id="-best-of-both-worlds">✅ <strong>Best of Both Worlds</strong></h3>
+<ul>
+<li>Use <strong>Cheerio</strong> for <strong>speed</strong> when scraping static pages.</li>
+<li>Switch to <strong>Puppeteer</strong> for <strong>JavaScript-heavy</strong> sites requiring full rendering.</li>
+<li>Provides <strong>flexibility</strong> to choose the best approach for your project.</li>
+</ul>
+<hr>
+<h2 id="-api-reference">✅ <strong>API Reference</strong></h2>
+<h3 id="webscraper-class"><strong>WebScraper Class</strong></h3>
+<pre><code class="language-typescript">new WebScraper(options?: ScraperOptions)
+</code></pre>
+<h2 id="-props">📊 Props</h2>
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>usePuppeteer</code></td><td><code>boolean</code> (optional)</td><td>Whether to use Puppeteer (default: <code>true</code>)</td></tr><tr><td><code>throttle</code></td><td><code>number</code> (optional)</td><td>Delay in milliseconds between requests (default: <code>1000</code>)</td></tr><tr><td><code>rules</code></td><td><code>Record&lt;string, string&gt;</code></td><td><a href="#rule-set-table">CSS selectors defining data extraction rules</a></td></tr></tbody></table>
+<hr>
+<h2 id="methods"><strong>Methods</strong></h2>
+<h4 id="scrapeurl-string-promiserecordstring-any"><strong><code>scrape(url: string): Promise&lt;Record&lt;string, any&gt;&gt;</code></strong></h4>
+<ul>
+<li>Scrapes the given URL based on the configured options.</li>
+</ul>
+<h4 id="exporttojsondata-any-filepath-string-void"><strong><code>exportToJSON(data: any, filePath: string): void</code></strong></h4>
+<ul>
+<li>Exports the given data to a JSON file.</li>
+</ul>
+<h4 id="exporttocsvdata-any--any-filepath-string-void"><strong><code>exportToCSV(data: any | any[], filePath: string): void</code></strong></h4>
+<ul>
+<li>Exports the given data to a CSV file.</li>
+</ul>
+<hr>
+<h2 id="️-basic-usage">🛠️ Basic Usage</h2>
+<h3 id="1-scraping-web-pages"><strong>1. Scraping Web Pages</strong></h3>
+<p>You can scrape web pages using either Puppeteer (for JavaScript-heavy pages) or
+Cheerio (for static HTML pages).</p>
+<pre><code class="language-typescript">import { WebScraper } from &#x27;simple-web-scraper&#x27;;
+
+const scraper = new WebScraper({
+  usePuppeteer: false, // Set to true for dynamic pages
+  rules: {
+    title: &#x27;h1&#x27;,
+    description: &#x27;meta[name=\&quot;description\&quot;]&#x27;,
+  },
+});
+
+(async () =&gt; {
+  const data = await scraper.scrape(&#x27;https://example.com&#x27;);
+  console.log(data);
+})();
+</code></pre>
+<hr>
+<h3 id="2-using-puppeteer-for-javascript-heavy-pages"><strong>2. Using Puppeteer for JavaScript-heavy Pages</strong></h3>
+<p>To scrape pages that require JavaScript execution:</p>
+<pre><code class="language-typescript">const scraper = new WebScraper({
+  usePuppeteer: true, // Enable Puppeteer for JavaScript-rendered content
+  rules: {
+    heading: &#x27;h1&#x27;,
+    price: &#x27;.product-price&#x27;,
+  },
+});
+
+(async () =&gt; {
+  const data = await scraper.scrape(&#x27;https://example.com/product&#x27;);
+  console.log(data);
+})();
+</code></pre>
+<hr>
+<h3 id="3-exporting-data"><strong>3. Exporting Data</strong></h3>
+<ul>
+<li>Scraped data can be exported to JSON or CSV files using utility functions.</li>
+</ul>
+<h4 id="export-to-json"><strong>Export to JSON</strong></h4>
+<pre><code class="language-typescript">import { exportToJSON } from &#x27;simple-web-scraper&#x27;;
+
+const data = { name: &#x27;Example&#x27;, value: 42 };
+exportToJSON(data, &#x27;output.json&#x27;);
+</code></pre>
+<h4 id="export-to-csv"><strong>Export to CSV</strong></h4>
+<pre><code class="language-typescript">import { exportToCSV } from &#x27;simple-web-scraper&#x27;;
+
+const data = [
+  { name: &#x27;Example 1&#x27;, value: 42 },
+  { name: &#x27;Example 2&#x27;, value: 99 },
+];
+exportToCSV(data, &#x27;output.csv&#x27;);
+
+// Preserve null and undefined values as null
+exportToCSV(data, &#x27;output.csv&#x27;, { preserveNulls: true });
+</code></pre>
+<hr>
+<h2 id="-backend-example---module-import">🖥 Backend Example - Module (import)</h2>
+<p>This example demonstrates how to use <code>simple-web-scraper</code> in a Node.js backend:</p>
+<pre><code class="language-typescript">import express from &#x27;express&#x27;;
+import { WebScraper, exportToJSON, exportToCSV } from &#x27;simple-web-scraper&#x27;;
+
+const app = express();
+const scraper = new WebScraper({
+  usePuppeteer: true,
+  rules: { title: &#x27;h1&#x27;, content: &#x27;p&#x27; },
+});
+
+app.get(&#x27;/scrape-example&#x27;, async (req, res) =&gt; {
+  try {
+    const url = &#x27;https://github.com/The-Node-Forge&#x27;;
+    const data = await scraper.scrape(url);
+
+    exportToJSON(data, &#x27;output.json&#x27;); // export JSON
+    exportToCSV(data, &#x27;output.csv&#x27;, { preserveNulls: true }); // export CSV
+
+    res.status(200).json({ success: true, data });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+</code></pre>
+<hr>
+<h2 id="-backend-example---commonjs-require">🖥 Backend Example - CommonJS (require)</h2>
+<p>This example demonstrates how to use <code>simple-web-scraper</code> in a Node.js backend:</p>
+<pre><code class="language-typescript">const {
+  WebScraper,
+  exportToJSON,
+  exportToCSV,
+} = require(&#x27;@the-node-forge/simple-web-scraper/dist&#x27;);
+
+const scraper = new WebScraper({
+  usePuppeteer: true,
+  rules: {
+    fullHTML: &#x27;html&#x27;, // Entire page HTML
+    title: &#x27;head &gt; title&#x27;, // Page title
+    description: &#x27;meta[name=&quot;description&quot;]&#x27;, // Meta description
+    keywords: &#x27;meta[name=&quot;keywords&quot;]&#x27;, // Meta keywords
+    favicon: &#x27;link[rel=&quot;icon&quot;]&#x27;, // Favicon URL
+    mainHeading: &#x27;h1&#x27;, // First H1 heading
+    allHeadings: &#x27;h1, h2, h3, h4, h5, h6&#x27;, // All headings on the page
+    firstParagraph: &#x27;p&#x27;, // First paragraph
+    allParagraphs: &#x27;p&#x27;, // All paragraphs on the page
+    links: &#x27;a&#x27;, // All links on the page
+    images: &#x27;img&#x27;, // All image URLs
+    imageAlts: &#x27;img&#x27;, // Alternative text for images
+    videos: &#x27;video, iframe[src*=&quot;youtube.com&quot;], iframe[src*=&quot;vimeo.com&quot;]&#x27;, // Video sources
+    tables: &#x27;table&#x27;, // Capture table elements
+    tableData: &#x27;td&#x27;, // Capture table cells
+    lists: &#x27;ul, ol&#x27;, // Capture all lists
+    listItems: &#x27;li&#x27;, // Capture all list items
+    scripts: &#x27;script&#x27;, // JavaScript file sources
+    stylesheets: &#x27;link[rel=&quot;stylesheet&quot;]&#x27;, // External CSS files
+    structuredData: &#x27;script[type=&quot;application/ld+json&quot;]&#x27;, // JSON-LD structured data
+    socialLinks:
+      &#x27;a[href*=&quot;facebook.com&quot;], a[href*=&quot;twitter.com&quot;], a[href*=&quot;linkedin.com&quot;], a[href*=&quot;instagram.com&quot;]&#x27;, // Social media links
+    author: &#x27;meta[name=&quot;author&quot;]&#x27;, // Author meta tag
+    publishDate: &#x27;meta[property=&quot;article:published_time&quot;], time&#x27;, // Publish date
+    modifiedDate: &#x27;meta[property=&quot;article:modified_time&quot;]&#x27;, // Last modified date
+    canonicalURL: &#x27;link[rel=&quot;canonical&quot;]&#x27;, // Canonical URL
+    openGraphTitle: &#x27;meta[property=&quot;og:title&quot;]&#x27;, // OpenGraph title
+    openGraphDescription: &#x27;meta[property=&quot;og:description&quot;]&#x27;, // OpenGraph description
+    openGraphImage: &#x27;meta[property=&quot;og:image&quot;]&#x27;, // OpenGraph image
+    twitterCard: &#x27;meta[name=&quot;twitter:card&quot;]&#x27;, // Twitter card type
+    twitterTitle: &#x27;meta[name=&quot;twitter:title&quot;]&#x27;, // Twitter title
+    twitterDescription: &#x27;meta[name=&quot;twitter:description&quot;]&#x27;, // Twitter description
+    twitterImage: &#x27;meta[name=&quot;twitter:image&quot;]&#x27;, // Twitter image
+  },
+});
+
+app.get(&#x27;/test-scraper&#x27;, async (req, res) =&gt; {
+  try {
+    const url = &#x27;https://github.com/The-Node-Forge&#x27;;
+    const data = await scraper.scrape(url);
+
+    exportToJSON(data, &#x27;output.json&#x27;); // export JSON
+    exportToCSV(data, &#x27;output.csv&#x27;); // export CSV
+
+    res.status(200).json({ success: true, data });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+</code></pre>
+<h2 id="️-full-usage-example">🛠️ Full Usage Example</h2>
+<pre><code class="language-typescript">import { WebScraper } from &#x27;simple-web-scraper&#x27;;
+
+const scraper = new WebScraper({
+  usePuppeteer: true, // Set to false if scraping static pages
+  rules: {
+    fullHTML: &#x27;html&#x27;, // Entire page HTML
+    title: &#x27;head &gt; title&#x27;, // Page title
+    description: &#x27;meta[name=&quot;description&quot;]&#x27;, // Meta description
+    keywords: &#x27;meta[name=&quot;keywords&quot;]&#x27;, // Meta keywords
+    favicon: &#x27;link[rel=&quot;icon&quot;]&#x27;, // Favicon URL
+    mainHeading: &#x27;h1&#x27;, // First H1 heading
+    allHeadings: &#x27;h1, h2, h3, h4, h5, h6&#x27;, // All headings on the page
+    firstParagraph: &#x27;p&#x27;, // First paragraph
+    allParagraphs: &#x27;p&#x27;, // All paragraphs on the page
+    links: &#x27;a&#x27;, // All links on the page
+    images: &#x27;img&#x27;, // All image URLs
+    imageAlts: &#x27;img&#x27;, // Alternative text for images
+    videos: &#x27;video, iframe[src*=&quot;youtube.com&quot;], iframe[src*=&quot;vimeo.com&quot;]&#x27;, // Video sources
+    tables: &#x27;table&#x27;, // Capture table elements
+    tableData: &#x27;td&#x27;, // Capture table cells
+    lists: &#x27;ul, ol&#x27;, // Capture all lists
+    listItems: &#x27;li&#x27;, // Capture all list items
+    scripts: &#x27;script&#x27;, // JavaScript file sources
+    stylesheets: &#x27;link[rel=&quot;stylesheet&quot;]&#x27;, // External CSS files
+    structuredData: &#x27;script[type=&quot;application/ld+json&quot;]&#x27;, // JSON-LD structured data
+    socialLinks:
+      &#x27;a[href*=&quot;facebook.com&quot;], a[href*=&quot;twitter.com&quot;], a[href*=&quot;linkedin.com&quot;], a[href*=&quot;instagram.com&quot;]&#x27;, // Social media links
+    author: &#x27;meta[name=&quot;author&quot;]&#x27;, // Author meta tag
+    publishDate: &#x27;meta[property=&quot;article:published_time&quot;], time&#x27;, // Publish date
+    modifiedDate: &#x27;meta[property=&quot;article:modified_time&quot;]&#x27;, // Last modified date
+    canonicalURL: &#x27;link[rel=&quot;canonical&quot;]&#x27;, // Canonical URL
+    openGraphTitle: &#x27;meta[property=&quot;og:title&quot;]&#x27;, // OpenGraph title
+    openGraphDescription: &#x27;meta[property=&quot;og:description&quot;]&#x27;, // OpenGraph description
+    openGraphImage: &#x27;meta[property=&quot;og:image&quot;]&#x27;, // OpenGraph image
+    twitterCard: &#x27;meta[name=&quot;twitter:card&quot;]&#x27;, // Twitter card type
+    twitterTitle: &#x27;meta[name=&quot;twitter:title&quot;]&#x27;, // Twitter title
+    twitterDescription: &#x27;meta[name=&quot;twitter:description&quot;]&#x27;, // Twitter description
+    twitterImage: &#x27;meta[name=&quot;twitter:image&quot;]&#x27;, // Twitter image
+  },
+});
+
+(async () =&gt; {
+  const data = await scraper.scrape(&#x27;https://example.com&#x27;);
+  console.log(data);
+})();
+</code></pre>
+<hr>
+<h2 id="-rule-set-table">📊 Rule Set Table</h2>
+<table><thead><tr><th>Rule</th><th>CSS Selector</th><th>Target Data</th></tr></thead><tbody><tr><td>fullHTML</td><td><code>html</code></td><td>The entire HTML of the page</td></tr><tr><td>title</td><td><code>head &gt; title</code></td><td>The <code>&lt;title&gt;</code> of the page</td></tr><tr><td>description</td><td><code>meta[name=&quot;description&quot;]</code></td><td>Meta description for SEO</td></tr><tr><td>keywords</td><td><code>meta[name=&quot;keywords&quot;]</code></td><td>Meta keywords</td></tr><tr><td>favicon</td><td><code>link[rel=&quot;icon&quot;]</code></td><td>Website icon</td></tr><tr><td>mainHeading</td><td><code>h1</code></td><td>The first <code>&lt;h1&gt;</code> heading</td></tr><tr><td>allHeadings</td><td><code>h1, h2, h3, h4, h5, h6</code></td><td>All headings (<code>h1</code>-<code>h6</code>)</td></tr><tr><td>firstParagraph</td><td><code>p</code></td><td>The first paragraph (<code>&lt;p&gt;</code>)</td></tr><tr><td>allParagraphs</td><td><code>p</code></td><td>All paragraphs on the page</td></tr><tr><td>links</td><td><code>a</code></td><td>All anchor <code>&lt;a&gt;</code> links</td></tr><tr><td>images</td><td><code>img</code></td><td>All image <code>&lt;img&gt;</code> sources</td></tr><tr><td>imageAlts</td><td><code>img</code></td><td>All image alt texts</td></tr><tr><td>videos</td><td><code>video, iframe[src*=&quot;youtube.com&quot;], iframe[src*=&quot;vimeo.com&quot;]</code></td><td>Video sources (<code>&lt;video&gt;</code>, YouTube, Vimeo)</td></tr><tr><td>tables</td><td><code>table</code></td><td>All <code>&lt;table&gt;</code> elements</td></tr><tr><td>tableData</td><td><code>td</code></td><td>Individual <code>&lt;td&gt;</code> elements</td></tr><tr><td>lists</td><td><code>ul, ol</code></td><td>All ordered <code>&lt;ol&gt;</code> and unordered <code>&lt;ul&gt;</code> lists</td></tr><tr><td>listItems</td><td><code>li</code></td><td>All list <code>&lt;li&gt;</code> items</td></tr><tr><td>scripts</td><td><code>script</code></td><td>JavaScript files included (<code>&lt;script src=&quot;...&quot;&gt;</code>)</td></tr><tr><td>stylesheets</td><td><code>link[rel=&quot;stylesheet&quot;]</code></td><td>Stylesheets (<code>&lt;link rel=&quot;stylesheet&quot;&gt;</code>)</td></tr><tr><td>structuredData</td><td><code>script[type=&quot;application/ld+json&quot;]</code></td><td>JSON-LD structured data for SEO</td></tr><tr><td>socialLinks</td><td><code>a[href*=&quot;facebook.com&quot;], a[href*=&quot;twitter.com&quot;], a[href*=&quot;linkedin.com&quot;], a[href*=&quot;instagram.com&quot;]</code></td><td>Facebook, Twitter, LinkedIn, Instagram links</td></tr><tr><td>author</td><td><code>meta[name=&quot;author&quot;]</code></td><td>Page author (<code>meta[name=&quot;author&quot;]</code>)</td></tr><tr><td>publishDate</td><td><code>meta[property=&quot;article:published_time&quot;], time</code></td><td>Date article was published</td></tr><tr><td>modifiedDate</td><td><code>meta[property=&quot;article:modified_time&quot;]</code></td><td>Last modified date</td></tr><tr><td>canonicalURL</td><td><code>link[rel=&quot;canonical&quot;]</code></td><td>Canonical URL (avoids duplicate content)</td></tr><tr><td>openGraphTitle</td><td><code>meta[property=&quot;og:title&quot;]</code></td><td>OpenGraph metadata for social sharing</td></tr><tr><td>openGraphDescription</td><td><code>meta[property=&quot;og:description&quot;]</code></td><td>OpenGraph description</td></tr><tr><td>openGraphImage</td><td><code>meta[property=&quot;og:image&quot;]</code></td><td>OpenGraph image URL</td></tr><tr><td>twitterCard</td><td><code>meta[name=&quot;twitter:card&quot;]</code></td><td>Twitter card type (<code>summary</code>, <code>summary_large_image</code>)</td></tr><tr><td>twitterTitle</td><td><code>meta[name=&quot;twitter:title&quot;]</code></td><td>Twitter title metadata</td></tr><tr><td>twitterDescription</td><td><code>meta[name=&quot;twitter:description&quot;]</code></td><td>Twitter description metadata</td></tr><tr><td>twitterImage</td><td><code>meta[name=&quot;twitter:image&quot;]</code></td><td>Twitter image metadata</td></tr></tbody></table>
+<hr>
+<h2 id="-contributing">💡 <strong>Contributing</strong></h2>
+<p>Contributions are welcome! Please submit
+<a href="https://github.com/The-Node-Forge/simple-web-scraper/issues">issues</a> or
+<a href="https://github.com/The-Node-Forge/simple-web-scraper/pulls">pull requests</a>.</p>
+<hr></main></main></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/simple-web-scraper/docs/intro">API</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/The-Node-Forge/simple-web-scraper" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 The Node Forge. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
