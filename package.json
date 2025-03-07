@@ -1,6 +1,6 @@
 {
   "name": "@the-node-forge/simple-web-scraper",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Extracts structured data from web pages for automation, research, or aggregation.",
   "exports": {
     "import": "./dist/mjs/index.mjs",
