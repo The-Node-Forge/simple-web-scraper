@@ -4,14 +4,14 @@ description: How to install and set up Simple Web Scraper.
 sidebar_position: 2
 ---
 
-## 📌 Prerequisites
+## Prerequisites
 
 Before installing, ensure you have the following:
 
 - **Node.js** (Version `16.x` or higher recommended)
 - **npm** (included with Node.js) or **Yarn**
 
-## 📥 Installation
+## Installation
 
 You can install `simple-web-scraper` using npm or Yarn:
 
@@ -27,7 +27,7 @@ npm install simple-web-scraper
 yarn add simple-web-scraper
 ```
 
-## 📦 Importing the Package
+## Importing the Package
 
 After installation, you can import it into your project:
 
@@ -43,7 +43,7 @@ import { WebScraper, exportToJSON, exportToCSV } from 'simple-web-scraper';
 const { WebScraper, exportToJSON, exportToCSV } = require('simple-web-scraper');
 ```
 
-## 🚀 Next Steps
+## Next Steps
 
 After installation, check out the [Usage Guide](USAGE.md) for how to integrate
 `simple-web-scraper` into your project.

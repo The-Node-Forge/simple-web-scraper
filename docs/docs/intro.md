@@ -20,20 +20,20 @@ Puppeteer for JavaScript-rendered pages. Whether you're automating data collecti
 extracting SEO metadata, or gathering structured information, this package simplifies
 web scraping with minimal setup.**
 
-### 📌 Getting Started
+### Getting Started
 
 - [Installation Guide](./INSTALLATION.md)
 - [Usage Instructions](./USAGE.md)
 <!-- - [Configuration](..guides/CONFIGURATION.md) -->
 
-### 🔧 Developer Guide
+### Developer Guide
 
 <!-- - [Contributing](./CONTRIBUTING.md) -->
 
 - [API Reference](./API_REFERENCE.md)
 - [Changelog](./CHANGELOG.md)
 
-### 📜 Community & Policies
+### Community & Policies
 
 - [Code of Conduct](./CODE_OF_CONDUCT.md)
 

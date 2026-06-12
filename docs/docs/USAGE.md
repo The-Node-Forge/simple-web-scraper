@@ -4,7 +4,7 @@ description: Basic examples and configuration for Simple Web Scraper.
 sidebar_position: 3
 ---
 
-## 📌 Basic Example
+## Basic Example
 
 You can use `simple-web-scraper` with either ES Modules or CommonJS.
 
@@ -40,7 +40,7 @@ const scraper = new WebScraper({
 })();
 ```
 
-## ⚙️ Configuration Options
+## Configuration Options
 
 You can customize the scraper's behavior using the following options:
 
@@ -63,6 +63,6 @@ You can customize the scraper's behavior using the following options:
 | `throttle`     | `number` (optional)      | Delay in milliseconds between requests. Default: `1000`              |
 | `rules`        | `Record<string, string>` | CSS selectors defining the data to extract                           |
 
-## 📖 More Details
+## More Details
 
 For full API details, see [API_REFERENCE.md](API_REFERENCE.md).

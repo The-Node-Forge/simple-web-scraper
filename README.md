@@ -19,7 +19,7 @@ pages**, and **extract data** effortlessly.
 
 ---
 
-## ✨ Features
+## Features
 
 - ✅ **Fetch Web Content** – Retrieve HTML from any URL with ease.
 - ✅ **Parse and Extract Data** – Utilize integrated parsing tools to extract
@@ -34,7 +34,7 @@ pages**, and **extract data** effortlessly.
 
 ---
 
-## 📚 Installation
+## Installation
 
 Install via npm:
 
@@ -50,19 +50,19 @@ yarn add simple-web-scraper
 
 ---
 
-## 🚀 Why Use Cheerio and Puppeteer?
+## Why Use Cheerio and Puppeteer?
 
 This package leverages **Cheerio** and **Puppeteer** for powerful web scraping
 capabilities:
 
-### 🔹 **Cheerio (Fast and Lightweight)**
+### **Cheerio (Fast and Lightweight)**
 
 - Ideal for **static HTML parsing** (like `jQuery` for the backend).
 - Extremely **fast** and **lightweight** – perfect for pages **without JavaScript**
   rendering.
 - Provides **easy CSS selector querying** for extracting structured data.
 
-### 🔹 **Puppeteer (Headless Browser Automation)**
+### **Puppeteer (Headless Browser Automation)**
 
 - **Handles JavaScript-rendered pages** – essential for scraping dynamic content.
 - Can **interact with pages**, click buttons, and fill out forms.
@@ -84,7 +84,7 @@ capabilities:
 new WebScraper(options?: ScraperOptions)
 ```
 
-## 📊 Props
+## Props
 
 | Parameter      | Type                     | Description                                                     |
 | -------------- | ------------------------ | --------------------------------------------------------------- |
@@ -110,7 +110,7 @@ new WebScraper(options?: ScraperOptions)
 
 ---
 
-## 🛠️ Basic Usage
+## Basic Usage
 
 ### **1. Scraping Web Pages**
 
@@ -187,7 +187,7 @@ exportToCSV(data, 'output.csv', { preserveNulls: true });
 
 ---
 
-## 🖥 Backend Example - Module (import)
+## Backend Example - Module (import)
 
 This example demonstrates how to use `simple-web-scraper` in a Node.js backend:
 
@@ -218,7 +218,7 @@ app.get('/scrape-example', async (req, res) => {
 
 ---
 
-## 🖥 Backend Example - CommonJS (require)
+## Backend Example - CommonJS (require)
 
 This example demonstrates how to use `simple-web-scraper` in a Node.js backend:
 
@@ -283,7 +283,7 @@ app.get('/test-scraper', async (req, res) => {
 });
 ```
 
-## 🛠️ Full Usage Example
+## Full Usage Example
 
 ```typescript
 import { WebScraper } from 'simple-web-scraper';
@@ -335,7 +335,7 @@ const scraper = new WebScraper({
 
 ---
 
-## 📊 Rule Set Table
+## Rule Set Table
 
 | Rule                 | CSS Selector                                                                                         | Target Data                                          |
 | -------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -374,7 +374,7 @@ const scraper = new WebScraper({
 
 ---
 
-## 💡 **Contributing**
+## **Contributing**
 
 Contributions are welcome! Please submit
 [issues](https://github.com/The-Node-Forge/simple-web-scraper/issues) or
