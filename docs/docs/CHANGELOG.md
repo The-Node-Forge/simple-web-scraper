@@ -21,9 +21,6 @@ sidebar_position: 5
 
 **Documentation Improvements:**
 
-- Removed non-professional emojis from all documentation files for a more
-  professional appearance
-- Maintained checkmarks for feature lists and completed tasks
 - Updated documentation across README.md, installation guides, usage examples, and
   API references
 
