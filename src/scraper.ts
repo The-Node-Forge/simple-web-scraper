@@ -27,7 +27,7 @@ export class WebScraper {
    * @param url - The webpage URL to scrape.
    * @returns A promise resolving to an object with extracted data.
    */
-  async scrape(url: string): Promise<Record<string, any>> {
+  async scrape(url: string): Promise<Record<string, unknown>> {
     await this.delay(this.throttle); // introduce a delay before each request
 
     if (this.usePuppeteer) {
@@ -43,12 +43,12 @@ export class WebScraper {
    * @param url - The webpage URL to scrape.
    * @returns A promise resolving to an object with extracted data.
    */
-  private async scrapeWithPuppeteer(url: string): Promise<Record<string, any>> {
+  private async scrapeWithPuppeteer(url: string): Promise<Record<string, unknown>> {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'networkidle2' }); // navigtae to the URL and wait for network requests to settle
 
-    const data: Record<string, any> = {};
+    const data: Record<string, unknown> = {};
 
     for (const key in this.rules) {
       const selector = this.rules[key];
@@ -69,12 +69,12 @@ export class WebScraper {
    * @param url - The webpage URL to scrape.
    * @returns A promise resolving to an object with extracted data.
    */
-  private async scrapeWithCheerio(url: string): Promise<Record<string, any>> {
+  private async scrapeWithCheerio(url: string): Promise<Record<string, unknown>> {
     const response = await axios.get(url);
     const html = response.data;
     const $ = cheerio.load(html); // load the HTML into Cheerio for parsing
 
-    const data: Record<string, any> = {};
+    const data: Record<string, unknown> = {};
 
     for (const key in this.rules) {
       const selector = this.rules[key]; // get the CSS selector

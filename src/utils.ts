@@ -5,7 +5,7 @@ import * as fs from 'fs';
  * @param data - The data to export.
  * @param filePath - The output file path.
  */
-export function exportToJSON(data: any, filePath: string): void {
+export function exportToJSON(data: unknown, filePath: string): void {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   console.log(`Data exported to JSON file at: ${filePath}`);
 }
@@ -17,7 +17,7 @@ export function exportToJSON(data: any, filePath: string): void {
  * @param filePath - The output file path.
  */
 export function exportToCSV(
-  data: any | any[],
+  data: unknown | unknown[],
   filePath: string,
   options: { preserveNulls?: boolean } = {},
 ): void {
