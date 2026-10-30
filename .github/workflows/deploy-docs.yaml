@@ -30,7 +30,7 @@ jobs:
       - name: Install Docusaurus Dependencies
         run: |
           cd docs
-          npm install
+          npm ci
 
       - name: Generate API Docs
         run: npm run docs:generate
