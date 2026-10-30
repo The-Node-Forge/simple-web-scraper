@@ -28,12 +28,20 @@ sidebar_position: 5
 - Ran `npm audit fix` to pick up patched transitive dependencies (`undici`,
   `follow-redirects`, `ip-address`, `js-yaml`).
 
+### v2.0.0 - 2026-10-30
+
 **Bug Fixes:**
 
 - Fixed the ESM build:
   `import { WebScraper } from '@the-node-forge/simple-web-scraper'` previously failed
   because `dist/mjs` was emitted as CommonJS. `dist/mjs` is now real ESM, and
   `exports`/`types` point at the correct declaration files.
+- `throttle: 0` is now respected; previously it was silently replaced by the 1000ms
+  default.
+
+**Documentation:**
+
+- Added `SECURITY.md` describing private vulnerability reporting via GitHub.
 
 ### v1.1.3 - 2026-06-12
 
