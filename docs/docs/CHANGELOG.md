@@ -4,6 +4,14 @@ description: A detailed changelog.
 sidebar_position: 5
 ---
 
+### Unreleased
+
+**Security Updates:**
+
+- Ran `npm audit fix` to pick up patched transitive dependencies (`undici`,
+  `follow-redirects`, `ip-address`, `js-yaml`). Remaining advisories are in
+  `puppeteer`'s dependency tree and require the breaking `puppeteer@25` upgrade.
+
 ### v1.1.3 - 2026-06-12
 
 **Security Updates:**
