@@ -11,7 +11,7 @@ You can use `simple-web-scraper` with either ES Modules or CommonJS.
 ### **Using ES Modules (Recommended)**
 
 ```typescript
-import { WebScraper } from 'simple-web-scraper';
+import { WebScraper } from '@the-node-forge/simple-web-scraper';
 
 const scraper = new WebScraper({
   usePuppeteer: true,
@@ -27,7 +27,7 @@ const scraper = new WebScraper({
 ### **Using CommonJS (Node.js Default)**
 
 ```javascript
-const { WebScraper } = require('simple-web-scraper');
+const { WebScraper } = require('@the-node-forge/simple-web-scraper');
 
 const scraper = new WebScraper({
   usePuppeteer: true,

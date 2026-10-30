@@ -39,13 +39,13 @@ pages**, and **extract data** effortlessly.
 Install via npm:
 
 ```sh
-npm install simple-web-scraper
+npm install @the-node-forge/simple-web-scraper
 ```
 
 or using Yarn:
 
 ```sh
-yarn add simple-web-scraper
+yarn add @the-node-forge/simple-web-scraper
 ```
 
 ---
@@ -118,7 +118,7 @@ You can scrape web pages using either Puppeteer (for JavaScript-heavy pages) or
 Cheerio (for static HTML pages).
 
 ```typescript
-import { WebScraper } from 'simple-web-scraper';
+import { WebScraper } from '@the-node-forge/simple-web-scraper';
 
 const scraper = new WebScraper({
   usePuppeteer: false, // Set to true for dynamic pages
@@ -164,7 +164,7 @@ const scraper = new WebScraper({
 #### **Export to JSON**
 
 ```typescript
-import { exportToJSON } from 'simple-web-scraper';
+import { exportToJSON } from '@the-node-forge/simple-web-scraper';
 
 const data = { name: 'Example', value: 42 };
 exportToJSON(data, 'output.json');
@@ -173,7 +173,7 @@ exportToJSON(data, 'output.json');
 #### **Export to CSV**
 
 ```typescript
-import { exportToCSV } from 'simple-web-scraper';
+import { exportToCSV } from '@the-node-forge/simple-web-scraper';
 
 const data = [
   { name: 'Example 1', value: 42 },
@@ -193,7 +193,11 @@ This example demonstrates how to use `simple-web-scraper` in a Node.js backend:
 
 ```typescript
 import express from 'express';
-import { WebScraper, exportToJSON, exportToCSV } from 'simple-web-scraper';
+import {
+  WebScraper,
+  exportToJSON,
+  exportToCSV,
+} from '@the-node-forge/simple-web-scraper';
 
 const app = express();
 const scraper = new WebScraper({
@@ -286,7 +290,7 @@ app.get('/test-scraper', async (req, res) => {
 ## Full Usage Example
 
 ```typescript
-import { WebScraper } from 'simple-web-scraper';
+import { WebScraper } from '@the-node-forge/simple-web-scraper';
 
 const scraper = new WebScraper({
   usePuppeteer: true, // Set to false if scraping static pages
