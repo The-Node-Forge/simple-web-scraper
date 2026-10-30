@@ -55,7 +55,7 @@ export function exportToCSV(
 
   for (const row of arrData) {
     const values = headers.map((header) => {
-      let value = row[header];
+      const value = row[header];
 
       if (value === null || value === undefined) {
         return preserveNulls ? `"null"` : `""`;
