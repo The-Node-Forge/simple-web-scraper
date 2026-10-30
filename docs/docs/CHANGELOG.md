@@ -16,6 +16,8 @@ sidebar_position: 5
 **Security Updates:**
 
 - Clears the Puppeteer-related advisories (`zod`, `basic-ftp`, `proxy-agent` tree).
+- Ran `npm audit fix` to pick up patched transitive dependencies (`undici`,
+  `follow-redirects`, `ip-address`, `js-yaml`).
 
 ### v1.1.3 - 2026-06-12
 
