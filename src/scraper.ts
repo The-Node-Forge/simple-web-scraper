@@ -38,7 +38,7 @@ export class WebScraper {
     this.usePuppeteer =
       options.usePuppeteer !== undefined ? options.usePuppeteer : true;
 
-    this.throttle = options.throttle || 1000;
+    this.throttle = options.throttle ?? 1000;
 
     this.timeout = options.timeout ?? DEFAULT_TIMEOUT_MS;
 
