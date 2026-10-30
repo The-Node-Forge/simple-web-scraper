@@ -4,7 +4,14 @@ description: A detailed changelog.
 sidebar_position: 5
 ---
 
-### Unreleased
+### v2.0.0 - 2026-10-30
+
+**Breaking Changes:**
+
+- Upgraded `puppeteer` from ^24 to ^25, which requires **Node.js >= 22.12**
+  (`engines.node` raised from `>=18`). Puppeteer 25 is ESM-only; the CommonJS build
+  loads it via `require(esm)`, which is available on Node 22.12+. Earlier releases of
+  this package are unaffected and keep working on older Node versions.
 
 **Security Updates:**
 
@@ -14,6 +21,9 @@ sidebar_position: 5
   and a 10 MB response size cap for Cheerio mode.
 - The Puppeteer browser is now always closed, even when navigation or extraction
   throws, preventing leaked Chromium processes.
+- Clears the Puppeteer-related advisories (`zod`, `basic-ftp`, `proxy-agent` tree).
+- Ran `npm audit fix` to pick up patched transitive dependencies (`undici`,
+  `follow-redirects`, `ip-address`, `js-yaml`).
 
 ### v1.1.3 - 2026-06-12
 
