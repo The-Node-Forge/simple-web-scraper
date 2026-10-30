@@ -19,6 +19,8 @@ Creates a new instance of the `WebScraper` class.
     JavaScript-rendered pages. Default: `true`.
   - `throttle` - `number` (optional) - Delay in milliseconds between requests.
     Default: `1000`.
+  - `timeout` - `number` (optional) - Maximum time in milliseconds for a page load
+    (Puppeteer) or HTTP request (Cheerio). Default: `30000`.
   - `rules` - `Record<string, string>` - CSS selectors defining data extraction
     rules.
 
@@ -47,7 +49,8 @@ Scrapes the given URL based on the configured options.
 
 **Parameters:**
 
-- `url` - `string` - The webpage URL to scrape.
+- `url` - `string` - The webpage URL to scrape. Only `http:` and `https:` URLs are
+  accepted; anything else (e.g. `file://`) rejects with an error.
 
 **Returns:**
 

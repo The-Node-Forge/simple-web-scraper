@@ -39,7 +39,10 @@ describe('WebScraper', () => {
       // Verify Puppeteer branch execution
       expect(puppeteer.launch).toHaveBeenCalled();
       expect(mockNewPage).toHaveBeenCalled();
-      expect(mockGoto).toHaveBeenCalledWith(testUrl, { waitUntil: 'networkidle2' });
+      expect(mockGoto).toHaveBeenCalledWith(testUrl, {
+        waitUntil: 'networkidle2',
+        timeout: 30000,
+      });
       expect(mockEvaluate).toHaveBeenCalledWith(expect.any(Function), 'h1');
       expect(mockClose).toHaveBeenCalled();
       expect(data).toEqual({ title: 'Mock Title' });
@@ -78,7 +81,7 @@ describe('WebScraper', () => {
       });
 
       const data = await scraper.scrape(testUrl);
-      expect(axios.get).toHaveBeenCalledWith(testUrl);
+      expect(axios.get).toHaveBeenCalledWith(testUrl, expect.any(Object));
       expect(data).toEqual({ title: 'Cheerio Title' });
     });
 

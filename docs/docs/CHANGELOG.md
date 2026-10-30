@@ -15,6 +15,12 @@ sidebar_position: 5
 
 **Security Updates:**
 
+- `scrape()` now rejects non-`http(s)` URLs (e.g. `file://`, `chrome://`), which
+  Puppeteer would otherwise load and expose through the extraction rules.
+- Added a `timeout` option (default 30s) for Puppeteer navigation and Axios requests,
+  and a 10 MB response size cap for Cheerio mode.
+- The Puppeteer browser is now always closed, even when navigation or extraction
+  throws, preventing leaked Chromium processes.
 - Clears the Puppeteer-related advisories (`zod`, `basic-ftp`, `proxy-agent` tree).
 - Ran `npm audit fix` to pick up patched transitive dependencies (`undici`,
   `follow-redirects`, `ip-address`, `js-yaml`).
