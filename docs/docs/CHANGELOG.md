@@ -28,8 +28,6 @@ sidebar_position: 5
 - Ran `npm audit fix` to pick up patched transitive dependencies (`undici`,
   `follow-redirects`, `ip-address`, `js-yaml`).
 
-### v2.0.0 - 2026-10-30
-
 **Bug Fixes:**
 
 - Fixed the ESM build:
