@@ -4,6 +4,15 @@ description: A detailed changelog.
 sidebar_position: 5
 ---
 
+### Unreleased
+
+**Bug Fixes:**
+
+- Fixed the ESM build:
+  `import { WebScraper } from '@the-node-forge/simple-web-scraper'` previously failed
+  because `dist/mjs` was emitted as CommonJS. `dist/mjs` is now real ESM, and
+  `exports`/`types` point at the correct declaration files.
+
 ### v1.1.3 - 2026-06-12
 
 **Security Updates:**
