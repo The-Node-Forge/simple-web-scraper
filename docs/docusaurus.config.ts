@@ -117,7 +117,7 @@ const config: Config = {
       'docusaurus-plugin-typedoc',
       {
         entryPoints: ['../src/index.ts'],
-        tsconfig: '../tsconfig.json',
+        tsconfig: '../tsconfig.cjs.json',
         out: 'docs/api',
         includeVersion: true,
         hideGenerator: true,
