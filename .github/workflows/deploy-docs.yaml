@@ -7,9 +7,7 @@ on:
   workflow_dispatch: # Allows manual deployment
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: write # force-pushes the built site to gh-pages
 
 jobs:
   deploy:
@@ -27,7 +25,7 @@ jobs:
           node-version: 24
 
       - name: Install Root Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Install Docusaurus Dependencies
         run: |
