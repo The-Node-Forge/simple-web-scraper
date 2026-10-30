@@ -4,6 +4,12 @@ description: A detailed changelog.
 sidebar_position: 5
 ---
 
+### Unreleased
+
+**Documentation:**
+
+- Added `SECURITY.md` describing private vulnerability reporting via GitHub.
+
 ### v1.1.3 - 2026-06-12
 
 **Security Updates:**
