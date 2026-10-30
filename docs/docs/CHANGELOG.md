@@ -4,6 +4,14 @@ description: A detailed changelog.
 sidebar_position: 5
 ---
 
+### Unreleased
+
+**Security Updates:**
+
+- `exportToCSV` now neutralizes CSV/formula injection: string cells and headers
+  starting with `=`, `+`, `-`, `@`, tab or CR are prefixed with `'`. Opt out with
+  `{ sanitizeFormulas: false }`.
+
 ### v1.1.3 - 2026-06-12
 
 **Security Updates:**

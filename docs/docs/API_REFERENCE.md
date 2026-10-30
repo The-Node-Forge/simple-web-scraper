@@ -86,7 +86,7 @@ exportToJSON(data, 'output.json');
 
 ---
 
-### `exportToCSV(data: any | any[], filePath: string): void`
+### `exportToCSV(data: any | any[], filePath: string, options?: { preserveNulls?: boolean; sanitizeFormulas?: boolean }): void`
 
 Exports the given data to a CSV file.
 
@@ -94,6 +94,12 @@ Exports the given data to a CSV file.
 
 - `data` - `any | any[]` - The data to be exported.
 - `filePath` - `string` - The path where the CSV file should be saved.
+- `options` (optional)
+  - `preserveNulls` - `boolean` - Write `null`/`undefined` as `"null"` instead of an
+    empty cell. Default: `false`.
+  - `sanitizeFormulas` - `boolean` - Prefix string cells (and headers) that start
+    with `=`, `+`, `-`, `@`, tab or CR with a `'` so spreadsheet apps don't execute
+    scraped content as formulas (CSV injection). Default: `true`.
 
 **Returns:**
 
