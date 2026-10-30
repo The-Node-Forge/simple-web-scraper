@@ -32,6 +32,10 @@ sidebar_position: 5
 
 **Bug Fixes:**
 
+- Fixed the ESM build:
+  `import { WebScraper } from '@the-node-forge/simple-web-scraper'` previously failed
+  because `dist/mjs` was emitted as CommonJS. `dist/mjs` is now real ESM, and
+  `exports`/`types` point at the correct declaration files.
 - `throttle: 0` is now respected; previously it was silently replaced by the 1000ms
   default.
 
