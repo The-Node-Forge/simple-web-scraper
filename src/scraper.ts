@@ -5,12 +5,33 @@ import * as cheerio from 'cheerio';
 export interface ScraperOptions {
   usePuppeteer?: boolean;
   throttle?: number;
+  timeout?: number; // max time in ms for a page load / HTTP request (default 30000)
   rules?: Record<string, string>; // object defining CSS selectors for extracting specific data
+}
+
+const DEFAULT_TIMEOUT_MS = 30_000;
+const MAX_CONTENT_LENGTH = 10 * 1024 * 1024; // 10 MB cap on static HTML responses
+
+/**
+ * Only http(s) URLs are scraped. Puppeteer would otherwise happily load
+ * `file://` or `chrome://` URLs and return their contents through the rules.
+ */
+function assertHttpUrl(url: string): void {
+  let parsed: URL;
+  try {
+    parsed = new URL(url);
+  } catch {
+    throw new Error('Invalid URL');
+  }
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+    throw new Error(`Unsupported URL protocol: ${parsed.protocol}`);
+  }
 }
 
 export class WebScraper {
   private usePuppeteer: boolean;
   private throttle: number;
+  private timeout: number;
   private rules: Record<string, string>;
 
   constructor(options: ScraperOptions = {}) {
@@ -18,6 +39,8 @@ export class WebScraper {
       options.usePuppeteer !== undefined ? options.usePuppeteer : true;
 
     this.throttle = options.throttle || 1000;
+
+    this.timeout = options.timeout ?? DEFAULT_TIMEOUT_MS;
 
     this.rules = options.rules || {};
   }
@@ -28,6 +51,8 @@ export class WebScraper {
    * @returns A promise resolving to an object with extracted data.
    */
   async scrape(url: string): Promise<Record<string, unknown>> {
+    assertHttpUrl(url);
+
     await this.delay(this.throttle); // introduce a delay before each request
 
     if (this.usePuppeteer) {
@@ -45,22 +70,26 @@ export class WebScraper {
    */
   private async scrapeWithPuppeteer(url: string): Promise<Record<string, unknown>> {
     const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url, { waitUntil: 'networkidle2' }); // navigtae to the URL and wait for network requests to settle
 
-    const data: Record<string, unknown> = {};
+    try {
+      const page = await browser.newPage();
+      await page.goto(url, { waitUntil: 'networkidle2', timeout: this.timeout }); // navigate to the URL and wait for network requests to settle
 
-    for (const key in this.rules) {
-      const selector = this.rules[key];
+      const data: Record<string, unknown> = {};
 
-      data[key] = await page.evaluate((sel: string) => {
-        const el = document.querySelector(sel); // find the element using the selector
-        return el ? (el as HTMLElement).innerText : null; // return text content
-      }, selector);
+      for (const key in this.rules) {
+        const selector = this.rules[key];
+
+        data[key] = await page.evaluate((sel: string) => {
+          const el = document.querySelector(sel); // find the element using the selector
+          return el ? (el as HTMLElement).innerText : null; // return text content
+        }, selector);
+      }
+
+      return data;
+    } finally {
+      await browser.close(); // always release the browser, even if navigation/evaluation throws
     }
-
-    await browser.close();
-    return data;
   }
 
   /**
@@ -70,7 +99,10 @@ export class WebScraper {
    * @returns A promise resolving to an object with extracted data.
    */
   private async scrapeWithCheerio(url: string): Promise<Record<string, unknown>> {
-    const response = await axios.get(url);
+    const response = await axios.get(url, {
+      timeout: this.timeout,
+      maxContentLength: MAX_CONTENT_LENGTH,
+    });
     const html = response.data;
     const $ = cheerio.load(html); // load the HTML into Cheerio for parsing
 
