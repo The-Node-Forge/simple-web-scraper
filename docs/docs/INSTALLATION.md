@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Before installing, ensure you have the following:
 
-- **Node.js** (Version `16.x` or higher recommended)
+- **Node.js** (Version `22.12` or higher required)
 - **npm** (included with Node.js) or **Yarn**
 
 ## Installation

@@ -3,7 +3,8 @@ import axios from 'axios';
 
 import { WebScraper } from '../src/scraper';
 
-jest.mock('puppeteer');
+// puppeteer >=25 is ESM-only, so Jest can't automock it; provide an explicit factory
+jest.mock('puppeteer', () => ({ __esModule: true, default: { launch: jest.fn() } }));
 jest.mock('axios');
 
 describe('WebScraper', () => {

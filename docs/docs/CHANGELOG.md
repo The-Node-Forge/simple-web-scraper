@@ -4,6 +4,19 @@ description: A detailed changelog.
 sidebar_position: 5
 ---
 
+### Unreleased
+
+**Breaking Changes:**
+
+- Upgraded `puppeteer` from ^24 to ^25, which requires **Node.js >= 22.12**
+  (`engines.node` raised from `>=18`). Puppeteer 25 is ESM-only; the CommonJS build
+  loads it via `require(esm)`, which is available on Node 22.12+. Earlier releases of
+  this package are unaffected and keep working on older Node versions.
+
+**Security Updates:**
+
+- Clears the Puppeteer-related advisories (`zod`, `basic-ftp`, `proxy-agent` tree).
+
 ### v1.1.3 - 2026-06-12
 
 **Security Updates:**
