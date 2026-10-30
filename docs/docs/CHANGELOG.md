@@ -4,6 +4,13 @@ description: A detailed changelog.
 sidebar_position: 5
 ---
 
+### Unreleased
+
+**Bug Fixes:**
+
+- `throttle: 0` is now respected; previously it was silently replaced by the 1000ms
+  default.
+
 ### v1.1.3 - 2026-06-12
 
 **Security Updates:**
