@@ -28,6 +28,11 @@ sidebar_position: 5
 - Ran `npm audit fix` to pick up patched transitive dependencies (`undici`,
   `follow-redirects`, `ip-address`, `js-yaml`).
 
+**Bug Fixes:**
+
+- `throttle: 0` is now respected; previously it was silently replaced by the 1000ms
+  default.
+
 ### v1.1.3 - 2026-06-12
 
 **Security Updates:**
