@@ -15,6 +15,9 @@ sidebar_position: 5
 
 **Security Updates:**
 
+- `exportToCSV` now neutralizes CSV/formula injection: string cells and headers
+  starting with `=`, `+`, `-`, `@`, tab or CR are prefixed with `'`. Opt out with
+  `{ sanitizeFormulas: false }`.
 - `scrape()` now rejects non-`http(s)` URLs (e.g. `file://`, `chrome://`), which
   Puppeteer would otherwise load and expose through the extraction rules.
 - Added a `timeout` option (default 30s) for Puppeteer navigation and Axios requests,
