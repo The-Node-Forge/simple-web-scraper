@@ -31,7 +31,7 @@ Creates a new instance of the `WebScraper` class.
 **Example:**
 
 ```typescript
-import { WebScraper } from 'simple-web-scraper';
+import { WebScraper } from '@the-node-forge/simple-web-scraper';
 
 const scraper = new WebScraper({
   usePuppeteer: true,
@@ -81,7 +81,7 @@ Exports the given data to a JSON file.
 **Example:**
 
 ```typescript
-import { exportToJSON } from 'simple-web-scraper';
+import { exportToJSON } from '@the-node-forge/simple-web-scraper';
 
 const data = { name: 'Example', value: 42 };
 exportToJSON(data, 'output.json');
@@ -111,7 +111,7 @@ Exports the given data to a CSV file.
 **Example:**
 
 ```typescript
-import { exportToCSV } from 'simple-web-scraper';
+import { exportToCSV } from '@the-node-forge/simple-web-scraper';
 
 const data = [
   { name: 'Example 1', value: 42 },
@@ -131,7 +131,11 @@ This example demonstrates how to use `simple-web-scraper` in a Node.js backend:
 
 ```typescript
 import express from 'express';
-import { WebScraper, exportToJSON, exportToCSV } from 'simple-web-scraper';
+import {
+  WebScraper,
+  exportToJSON,
+  exportToCSV,
+} from '@the-node-forge/simple-web-scraper';
 
 const app = express();
 const scraper = new WebScraper({

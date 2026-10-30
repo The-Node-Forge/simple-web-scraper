@@ -4,6 +4,13 @@ description: A detailed changelog.
 sidebar_position: 5
 ---
 
+### Unreleased
+
+**Documentation:**
+
+- Fixed the install name and import paths in the README and docs: the package is
+  `@the-node-forge/simple-web-scraper`, not `simple-web-scraper`.
+
 ### v2.0.0 - 2026-10-30
 
 **Breaking Changes:**
